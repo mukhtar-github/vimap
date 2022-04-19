@@ -29,4 +29,29 @@ export default class VehiclesController {
         }
         res.json(response)
     }
+
+    static async apiGetVehicleById(req, res, next) {
+        try {
+          let id = req.params.id || {}
+          let vehicle = await VehiclesDAO.getVehicleByID(id)
+          if (!vehicle) {
+            res.status(404).json({ error: "Not found" })
+            return
+          }
+          res.json(vehicle)
+        } catch (e) {
+          console.log(`api, ${e}`)
+          res.status(500).json({ error: e })
+        }
+    }
+    
+      static async apiGetVehicleModels(req, res, next) {
+        try {
+          let models = await VehiclesDAO.getModels()
+          res.json(models)
+        } catch (e) {
+          console.log(`api, ${e}`)
+          res.status(500).json({ error: e })
+        }
+    }
 }

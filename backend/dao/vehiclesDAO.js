@@ -1,4 +1,7 @@
-let vehicles
+import mongodb from "mongodb";
+const ObjectId = mongodb.ObjectId;
+
+let vehicles;
 
 export default class VehiclesDAO {
     static async injectDB(conn) {
@@ -52,6 +55,61 @@ export default class VehiclesDAO {
                 `Unable to convert cursor to array or problem counting documents, ${e}`
             )
             return { vehiclesList: [], totalNumVehicles: 0 }
+        }
+    }
+
+    static async getVehicleByID(id) {
+        try {
+          const pipeline = [
+            {
+                $match: {
+                    _id: new ObjectId(id)
+                }
+            },
+                  {
+                      $lookup: {
+                          from: "info_update",
+                          let: {
+                              id: "$_id",
+                          },
+                          pipeline: [
+                              {
+                                  $match: {
+                                      $expr: {
+                                          $eq: ["$vehicle_id", "$$id"],
+                                      },
+                                  },
+                              },
+                              {
+                                  $sort: {
+                                      date: -1,
+                                  },
+                              },
+                          ],
+                          as: "infoUpdate",
+                      },
+                  },
+                  {
+                      $addFields: {
+                          infoUpdate: "$infoUpdate",
+                      },
+                  },
+              ]
+          return await vehicles.aggregate(pipeline).next()
+        } catch (e) {
+          console.error(`Something went wrong in getVehiclesByID: ${e}`)
+          throw e
+        }
+    }
+    
+    static async getModels() {
+        let models = []
+        try {
+          models = await vehicles.distinct("model")
+          return models
+        } catch (e) {
+          console.error(`Unable to get models, ${e}`)
+          return models
         }
     }
 }
