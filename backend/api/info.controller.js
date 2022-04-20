@@ -10,18 +10,18 @@ export default class InfoController {
                 name: req.body.name,
                 _id: req.body.user_id
             }
-            const insuranceDate = req.body.insurance_date
-            const insuranceId = req.body.insurance_id
-            const accidentHistory = req.body.accident_history
+            // const insuranceDate = req.body.insurance_date
+            // const insuranceId = req.body.insurance_id
+            // const accidentHistory = req.body.accident_history
             const date = new Date()
 
             const infoResponse = await InfoDAO.addInfo(
                 vehicleId,
                 userInfo,
                 info,
-                insuranceDate,
-                insuranceId,
-                accidentHistory,
+                // insuranceDate,
+                // insuranceId,
+                // accidentHistory,
                 date
             )
             res.json({ status: "Success" })
