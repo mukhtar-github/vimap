@@ -63,7 +63,7 @@ export default class InfoController {
     static async apiDeleteInfo(req, res, next) {
         try {
             const infoId = req.query.id
-            const userId = req.body.user_id
+            const userId = req.body.user_id // In production we use authentication method to be sure it's same user.
             console.log(reviewId)
             const infoResponse = await InfoDAO.deleteInfo(
                 infoId,
