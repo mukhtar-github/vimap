@@ -9,7 +9,7 @@ export default class InfoDAO {
       return;
     }
     try {
-      infoUpdate = await conn.db(process.env.VIMAPP_NS).collection("info_update");
+      infoUpdate = await conn.db(process.env.VIMAPP_NS).collection("info_update");// If the collection doesn't exist MongoDB WILL CREATE ONE FOR US
     } catch (e) {
       console.error(`Unable to establish a collection handle in userDAO: ${e}`);
     }
