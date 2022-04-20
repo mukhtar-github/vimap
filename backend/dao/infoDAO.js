@@ -15,16 +15,16 @@ export default class InfoDAO {
     }
   }
 
-  static async addInfo(vehicleId, user, info, date, insurance, accident) {
+  static async addInfo(vehicleId, userInfo, info, date, insuranceDate, insuranceId, accidentHistory) {
     try {
       const infoDoc = {
-        name: user.name,
-        user_id: user._id,
+        name: userInfo.name,
+        user_id: userInfo._id,
         date: date,
         text: info,
-        insur_date: insurance.insur_date,
-        insur_id: insurance.insur_id,
-        accident_hist: accident.accident_hist,
+        insurance_date: insuranceDate,
+        insurance_id: insuranceId,
+        accident_history: accidentHistory,
         vehicle_id: ObjectId(vehicleId)
       };
       return await infoUpdate.insertOne(infoDoc);

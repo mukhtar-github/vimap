@@ -10,9 +10,9 @@ export default class InfoController {
                 name: req.body.name,
                 _id: req.body.user_id
             }
-            const insuranceDate = req.body.insur_date
-            const insuranceId = req.body.insur_id
-            const accidentHistory = req.body.accident_hist
+            const insuranceDate = req.body.insurance_date
+            const insuranceId = req.body.insurance_id
+            const accidentHistory = req.body.accident_history
             const date = new Date()
 
             const infoResponse = await InfoDAO.addInfo(
