@@ -65,11 +65,11 @@ export default class InfoController {
         try {
             const infoId = req.query.id
             const userId = req.body.user_id // In production we use authentication method to be sure it's same user. We should not include anything in the body of delete request.
-            console.log(reviewId)
             const infoResponse = await InfoDAO.deleteInfo(
                 infoId,
                 userId
             )
+            //console.log(infoId)
             res.json({ status: "Success"});
         } catch (e) {
             res.status(500).json({ error: e.message });
