@@ -38,7 +38,8 @@ export default class InfoDAO {
 
   static async updateInfo(infoId, userId, text, date) {
     try {
-      const updateResponse = await infoUpdate.updateOne({
+      const updateResponse = await infoUpdate.updateOne(
+        {
         user_id: userId,
         _id: ObjectId(infoId)
       }, {
