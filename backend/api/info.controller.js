@@ -69,7 +69,7 @@ export default class InfoController {
                 infoId,
                 userId
             )
-            //console.log(infoId)
+            console.log(infoId)
             res.json({ status: "Success"});
         } catch (e) {
             res.status(500).json({ error: e.message });
