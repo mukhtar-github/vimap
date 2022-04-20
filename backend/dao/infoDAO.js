@@ -1,15 +1,15 @@
 import mongodb from "mongodb";
 const ObjectId = mongodb.ObjectId;
 
-let infoUpdate;
+let info_update;
 
 export default class InfoDAO {
   static async injectDB(conn) {
-    if (infoUpdate) {
+    if (info_update) {
       return;
     }
     try {
-      infoUpdate = await conn.db(process.env.VIMAPP_NS).collection("info_update");// If the collection doesn't exist MongoDB WILL CREATE ONE FOR US
+      info_update = await conn.db(process.env.VIMAPP_NS).collection("info_update");// If the collection doesn't exist MongoDB WILL CREATE ONE FOR US
     } catch (e) {
       console.error(`Unable to establish a collection handle in userDAO: ${e}`);
     }
@@ -27,7 +27,7 @@ export default class InfoDAO {
         accident_history: accidentHistory,
         vehicle_id: ObjectId(vehicleId)
       };
-      return await infoUpdate.insertOne(infoDoc);
+      return await info_update.insertOne(infoDoc);
     } catch (e) {
       console.error(`Unable to post update: ${e}`);
       return {
@@ -38,7 +38,7 @@ export default class InfoDAO {
 
   static async updateInfo(infoId, userId, text, date) {
     try {
-      const updateResponse = await infoUpdate.updateOne(
+      const updateResponse = await info_update.updateOne(
         {
         user_id: userId,
         _id: ObjectId(infoId)
@@ -59,7 +59,7 @@ export default class InfoDAO {
 
   static async deleteInfo(infoId, userId) {
     try {
-      const deleteResponse = await infoUpdate.deleteOne({
+      const deleteResponse = await info_update.deleteOne({
         user_id: userId,
         _id: ObjectId(infoId)
       })

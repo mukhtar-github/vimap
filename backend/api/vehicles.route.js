@@ -9,7 +9,7 @@ router.route("/id/:id").get(VehiclesCtrl.apiGetVehicleById)
 router.route("/models").get(VehiclesCtrl.apiGetVehicleModels)
 
 router
-    .route("/infoUpdate")
+    .route("/info")
     .post(InfoCtrl.apiPostInfo)
     .put(InfoCtrl.apiUpdateInfo)
     .delete(InfoCtrl.apiDeleteInfo)
