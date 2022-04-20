@@ -34,11 +34,12 @@ export default class InfoController {
         try {
             const infoId = req.body.info_id
             const text = req.body.text
+            const userId = req.body.user_id
             const date = new Date()
 
             const infoResponse = await InfoDAO.updateInfo(
                 infoId,
-                req.body.user_id,
+                userId,
                 text,
                 date
             )
@@ -69,9 +70,9 @@ export default class InfoController {
                 infoId,
                 userId
             )
-            res.json({ status: "Success"})
+            res.json({ status: "Success"});
         } catch (e) {
-            res.status(500).json({ error: e.message })
+            res.status(500).json({ error: e.message });
         }
     }
 }
