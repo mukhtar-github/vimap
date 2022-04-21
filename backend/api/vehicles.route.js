@@ -8,6 +8,7 @@ router
     .route("/")
     .get(VehiclesCtrl.apiGetVehicles)
     .post(VehiclesCtrl.apiPostVehicles)
+    
 router.route("/id/:id").get(VehiclesCtrl.apiGetVehicleById)
 router.route("/models").get(VehiclesCtrl.apiGetVehicleModels)
 
