@@ -41,7 +41,7 @@ export default class VehiclesController {
       const attachedTo = req.body.attached_to
       const date = new Date()
 
-      const infoResponse = await InfoDAO.addInfo(
+      const infoResponse = await VehiclesDAO.addVehicles(
         vehicleModel,
         vehicleYear,
         vehicleChassis,
