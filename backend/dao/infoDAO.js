@@ -15,13 +15,16 @@ export default class InfoDAO {
     }
   }
 
-  static async addInfo(vehicleId, user, info, date) {
+  static async addInfo(vehicleId, userInfo, info, insuranceDate, insuranceId, accidentHistory, date) {
     try {
       const infoDoc = {
-        name: user.name,
-        user_id: user._id,
+        name: userInfo.name,
+        user_id: userInfo._id,
         date: date,
         text: info,
+        insurance_date: insuranceDate,
+        insurance_id: insuranceId,
+        accident_history: accidentHistory,
         vehicle_id: ObjectId(vehicleId)
       };
       return await info_update.insertOne(infoDoc);
@@ -32,10 +35,7 @@ export default class InfoDAO {
       };
     }
   }
-//insuranceDate, insuranceId, accidentHistory
-// insurance_date: insuranceDate,
-// insurance_id: insuranceId,
-// accident_history: accidentHistory,
+  
   static async updateInfo(infoId, userId, text, date) {
     try {
       const updateResponse = await info_update.updateOne(

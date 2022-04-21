@@ -58,6 +58,26 @@ export default class VehiclesDAO {
         }
     }
 
+    static async addVehicles(vehicleModel, vehicleYear, vehicleChassis, vehicleTyreSize, registrationNumber, attachedTo, date) {
+    try {
+      const vehicleDoc = {
+        model: vehicleModel,
+        year: vehicleYear,
+        chassis: vehicleChassis,
+        tyre_size: vehicleTyreSize,
+        registration_number: registrationNumber,
+        attached_to:  attachedTo,
+        date: date,
+      };
+      return await vehicles.insertOne(vehicleDoc);
+    } catch (e) {
+      console.error(`Unable to post update: ${e}`);
+      return {
+        error: e
+      };
+    }
+  }
+
     static async getVehicleByID(id) {
         try {
           const pipeline = [
