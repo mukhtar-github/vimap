@@ -1,5 +1,16 @@
 {
     "recommendations": [
-        "formulahendry.auto-rename-tag"
+        "formulahendry.auto-rename-tag",
+        "streetsidesoftware.code-spell-checker",
+        "mikestead.dotenv",
+        "rodrigovallades.es7-react-js-snippets",
+        "vincaslt.highlight-matching-tag",
+        "oderwat.indent-rainbow",
+        "yandeu.five-server",
+        "shd101wyy.markdown-preview-enhanced",
+        "esbenp.prettier-vscode",
+        "wallabyjs.quokka-vscode",
+        "vscode-icons-team.vscode-icons",
+        "styled-components.vscode-styled-components"
     ]
 }
