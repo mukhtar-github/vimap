@@ -35,3 +35,9 @@ npm start
 - reportWebVitals.js
 - setupTests.js
 - fix App.js and index.js
+
+#### Title and Favicon
+
+- change title in public/index.html
+- replace favicon.ico in public
+- resource [Generate Favicons](https://favicon.io/)
