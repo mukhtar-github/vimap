@@ -1,6 +1,6 @@
 # VIMAP
 
-#### Your Vehicles Information at a Glance
+### Your Vehicles Information at a Glance
 
 Project in Action - [VIMAP](https://www.vimap.io/)
 
