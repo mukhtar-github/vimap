@@ -4,7 +4,6 @@ import styled from "styled-components";
 function App() {
   return (
     <div>
-      <h1>Vimap</h1>
       <Landing />
     </div>
   );
