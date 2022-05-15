@@ -824,7 +824,7 @@ const Component = () => {
 - create Logo.js
 - move import and image logic
 - export as default
-- utilize index.js
+- utilize index.js, since it's the default file in each folder, you only import the folder name.
 
 #### React Router
 
