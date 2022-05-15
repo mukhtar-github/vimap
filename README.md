@@ -843,6 +843,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 - Connect to browser's URL with BrowserRouter
 - Routes instead of Switch
+- Dashboard is our Home Page
 
 ```js
 
@@ -851,7 +852,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
       <Route path="/" element={<div>Dashboard</div>} />
       <Route path="/register" element={<div>Register</div>} />
       <Route path="/landing" element={<Landing />} />
-      <Route path="*" element={<div>Error</div>}>
+      <Route path="*" element={<div>Error</div>} />
     </Routes>
 </BrowserRouter>
 
