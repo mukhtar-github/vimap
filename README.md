@@ -1203,7 +1203,7 @@ const Alert = () => {
 - [JS Nuggets - Dynamic Object Keys](https://youtu.be/_qxCYtWm0tw)
 
 ```js
-appContext.js;
+Register.js;
 
 const handleChange = (e) => {
   setValues({ ...values, [e.target.name]: e.target.value });
@@ -1213,7 +1213,7 @@ const handleChange = (e) => {
 - get displayAlert function
 
 ```js
-appContext.js;
+Register.js;
 
 const onSubmit = (e) => {
   e.preventDefault();
