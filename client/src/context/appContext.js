@@ -8,6 +8,7 @@ const initialState = {
 };
 
 const AppContext = React.createContext();
+
 const AppProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
 
@@ -21,6 +22,7 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
+
 const useAppContext = () => {
   return useContext(AppContext);
 };
