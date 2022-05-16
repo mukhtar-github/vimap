@@ -846,16 +846,14 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 - Dashboard is our Home Page
 
 ```js
-
 <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<div>Dashboard</div>} />
-      <Route path="/register" element={<div>Register</div>} />
-      <Route path="/landing" element={<Landing />} />
-      <Route path="*" element={<div>Error</div>} />
-    </Routes>
+  <Routes>
+    <Route path="/" element={<div>Dashboard</div>} />
+    <Route path="/register" element={<div>Register</div>} />
+    <Route path="/landing" element={<Landing />} />
+    <Route path="*" element={<div>Error</div>} />
+  </Routes>
 </BrowserRouter>
-
 ```
 
 ```js
@@ -1100,7 +1098,7 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-// make sure use
+// make sure to start with use
 export const useAppContext = () => {
   return useContext(AppContext);
 };
