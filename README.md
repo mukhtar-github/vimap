@@ -1167,12 +1167,11 @@ export const DISPLAY_ALERT = "SHOW_ALERT";
 - setup imports (reducer and appContext)
 
 ```js
-appContext.js
+appContext.js;
 
-const displayAlert() =>{
-  dispatch({type:DISPLAY_ALERT})
-}
-
+const displayAlert = () => {
+  dispatch({ type: DISPLAY_ALERT });
+};
 ```
 
 ```js
