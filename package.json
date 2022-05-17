@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "#### Vehicles Information at a Glance",
   "main": "index.js",
+  "type": "module",
+  "start":"nodemon server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mukhtar-github/vimap/issues"
   },
-  "homepage": "https://github.com/mukhtar-github/vimap#readme"
+  "homepage": "https://github.com/mukhtar-github/vimap#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
