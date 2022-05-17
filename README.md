@@ -1,12 +1,8 @@
-# jobify-app
+# Vimap
 
-#### Track Your Job Search
+#### Vehicles Information at a Glance
 
-Project in Action - [Jobify](https://www.jobify.live/)
-
-#### Support
-
-Find the App Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
+Project in Action - [vimap](https://www.vimap.io/)
 
 #### Run The App Locally
 
