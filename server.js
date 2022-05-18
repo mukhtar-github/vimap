@@ -9,7 +9,6 @@ const app = express();
 dotenv.config();
 
 app.get("/", (req, res) => {
-  throw new Error("error");
   res.send("Welcome!");
 });
 
