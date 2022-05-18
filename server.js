@@ -6,6 +6,7 @@ import errorHandlerMiddleware from "./middleware/error-handler.js";
 const app = express();
 
 app.get("/", (req, res) => {
+  throw new Error("error");
   res.send("Welcome!");
 });
 
