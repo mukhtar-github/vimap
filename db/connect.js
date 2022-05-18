@@ -1,2 +1,7 @@
-const connectionString =
-  "mongodb+srv://vima:<password>@vima-cluster.pocdn.mongodb.net/?retryWrites=true&w=majority";
+import mongoose from "mongoose";
+
+const connectDB = (url) => {
+  return mongoose.connect(url);
+};
+
+export default connectDB;
