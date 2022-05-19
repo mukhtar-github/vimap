@@ -1426,41 +1426,47 @@ export default router;
 app.use("/api/v1/auth", authRouter);
 ```
 
-#### Jobs Controller and Route Structure
+#### Vehicles Controller and Route Structure
 
-- jobsController.js
+- vehiclesController.js
 - create async functions
 
 ```js
-export { createJob, deleteJob, getAllJobs, updateJob, showStats };
+export {
+  createVehicle,
+  deleteVehicle,
+  getAllVehicles,
+  updateVehicle,
+  showStats,
+};
 ```
 
 - return res.send('function name')
 
-- jobsRoutes.js
+- vehiclesRoutes.js
 - setup express router
-- import functions from jobsController.js
+- import functions from vehiclesController.js
 
 ```js
-router.route("/").post(createJob).get(getAllJobs);
+router.route("/").post(createVehicle).get(getAllVehicles);
 // place before :id
 router.route("/stats").get(showStats);
-router.route("/:id").delete(deleteJob).patch(updateJob);
+router.route("/:id").delete(deleteVehicle).patch(updateVehicle);
 
 export default router;
 ```
 
-- in server.js jobsRouter
+- import vehiclesRouter in server.js
 
 ```js
-app.use("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/vehicles", vehiclesRouter);
 ```
 
 #### Postman
 
 - URL global var
-- JOBIFY Collection
-- auth and jobs folders
+- VEHICLES Collection
+- auth and vehicles folders
 - setup routes
 
 #### User Model
