@@ -15,7 +15,7 @@ const updateVehicle = async (req, res) => {
 };
 
 const showStats = async (req, res) => {
-  return res.send("show vehicle's status");
+  return res.send("show stats");
 };
 
 export {
