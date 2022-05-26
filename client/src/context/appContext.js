@@ -7,6 +7,7 @@ import {
   REGISTER_USER_ERROR,
 } from "./actions";
 import reducer from "./reducer";
+import axios from "axios";
 
 const initialState = {
   isLoading: false,
@@ -39,7 +40,34 @@ const AppProvider = ({ children }) => {
   };
 
   const registerUser = async (currentUser) => {
-    console.log(currentUser);
+    dispatch({ type: REGISTER_USER_BEGIN });
+    try {
+      const response = await axios.post("/api/v1/auth/register", currentUser);
+      console.log(response);
+      const { user, token, location } = response.data;
+      dispatch({
+        type: REGISTER_USER_SUCCESS,
+        payload: {
+          user,
+          token,
+          location,
+        },
+      });
+
+      // will add later
+      // addUserToLocalStorage({
+      //   user,
+      //   token,
+      //   location,
+      // })
+    } catch (error) {
+      console.log(error.response);
+      dispatch({
+        type: REGISTER_USER_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
   };
 
   return (
