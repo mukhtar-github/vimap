@@ -1777,7 +1777,7 @@ if (action.type === REGISTER_USER_SUCCESS) {
     user: action.payload.user,
     token: action.payload.token,
     userLocation: action.payload.location,
-    jobLocation: action.payload.location,
+    vehicleLocation: action.payload.location,
     isLoading: false,
     showAlert: true,
     alertType: "success",
