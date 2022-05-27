@@ -1850,7 +1850,7 @@ const initialState = {
   user: user ? JSON.parse(user) : null,
   token: token,
   userLocation: userLocation || "",
-  jobLocation: userLocation || "",
+  vehicleLocation: userLocation || "",
 };
 ```
 
