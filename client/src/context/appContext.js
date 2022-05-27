@@ -1,4 +1,6 @@
 import React, { useReducer, useContext } from "react";
+import reducer from "./reducer";
+import axios from "axios";
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
@@ -6,8 +8,6 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_ERROR,
 } from "./actions";
-import reducer from "./reducer";
-import axios from "axios";
 
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("user");
