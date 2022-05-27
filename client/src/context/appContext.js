@@ -47,13 +47,13 @@ const AppProvider = ({ children }) => {
   const addUserToLocalStorage = ({ user, token, location }) => {
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("token", token);
-    localStorage.setItem("location", location);
+    localStorage.setItem("userLocation", userLocation);
   };
 
   const removeUserFromLocalStorage = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    localStorage.removeItem("location");
+    localStorage.removeItem("userLocation");
   };
 
   const registerUser = async (currentUser) => {
@@ -61,20 +61,20 @@ const AppProvider = ({ children }) => {
     try {
       const response = await axios.post("/api/v1/auth/register", currentUser);
       // console.log(response);
-      const { user, token, location } = response.data;
+      const { user, token, userLocation } = response.data;
       dispatch({
         type: REGISTER_USER_SUCCESS,
         payload: {
           user,
           token,
-          location,
+          userLocation,
         },
       });
 
       addUserToLocalStorage({
         user,
         token,
-        location,
+        userLocation,
       });
     } catch (error) {
       // console.log(error.response);
