@@ -1864,6 +1864,7 @@ npm install morgan
 ```
 
 ```js
+server.js;
 import morgan from "morgan";
 
 if (process.env.NODE_ENV !== "production") {
