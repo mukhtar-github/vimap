@@ -21,6 +21,7 @@ const register = async (req, res) => {
       name: user.name,
     },
     token,
+    location: user.location,
   });
 };
 
@@ -34,6 +35,9 @@ const login = async (req, res) => {
   if (!user) {
     throw new UnauthenticatedError("Invalid Credentials");
   }
+
+  console.log(user);
+
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {
     throw new UnauthenticatedError("Invalid Credentials");
