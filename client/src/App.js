@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        <Route path="/" element={<SharedLayout />}>
           <Route path="stats" element={<Stats />} />
           <Route path="all-vehicles" element={<AllVehicles />}></Route>
           <Route path="add-vehicle" element={<AddVehicle />}></Route>
