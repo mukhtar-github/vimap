@@ -2107,15 +2107,16 @@ const onSubmit = (e) => {
 - replace in home route
 
 ```js
+App.js
 <Route path="/" element={<div>dashboard</div>} />
 ```
 
 - create <b>dashboard</b> directory in pages
-- create AddJob,AllJobs,Profile,Stats,SharedLayout, index.js
+- create AddVehicle,AllVehicles,Profile,Stats,SharedLayout, index.js
 - setup basic returns
 
 ```js
-return <h1>Add Job Page</h1>;
+return <h1>Add Vehicle Page</h1>;
 ```
 
 - export all with index.js (just like components)
