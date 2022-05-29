@@ -12,7 +12,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>dashboard</div>} />
+        <Route path="/">
+          <Route path="stats" element={<Stats />} />
+          <Route path="all-vehicles" element={<AllVehicles />}></Route>
+          <Route path="add-vehicle" element={<AddVehicle />}></Route>
+          <Route path="profile" element={<Profile />}></Route>
+        </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="*" element={<Error />} />

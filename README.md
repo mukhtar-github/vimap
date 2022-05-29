@@ -2129,8 +2129,8 @@ App.js
 
 <Route path='/' >
   <Route path="stats" element={<Stats />} />
-  <Route path='all-jobs' element={<AllJobs />}></Route>
-  <Route path='add-job' element={<AddJob />}></Route>
+  <Route path='all-vehicles' element={<AllVehicles />}></Route>
+  <Route path='add-vehicle' element={<AddVehicle />}></Route>
   <Route path='profile' element={<Profile />}></Route>
 </Route>
 ```
