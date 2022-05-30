@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route path="stats" element={<Stats />} />
+          <Route index element={<Stats />}></Route>
           <Route path="all-vehicles" element={<AllVehicles />}></Route>
           <Route path="add-vehicle" element={<AddVehicle />}></Route>
           <Route path="profile" element={<Profile />}></Route>

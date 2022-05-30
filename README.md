@@ -2154,7 +2154,7 @@ const SharedLayout = () => {
     <Wrapper>
       <nav>
         <Link to="all-vehicles">all vehicles</Link>
-        <Link to="add-vehicle">add vehicles</Link>
+        <Link to="add-vehicle">add vehicle</Link>
       </nav>
       <Outlet />
     </Wrapper>
