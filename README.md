@@ -2611,7 +2611,7 @@ SmallSidebar.js
 
 import NavLinks from './NavLinks'
 
-return <NavLinks toggleSidebar={toggleSidebar}>
+return <NavLinks toggleSidebar={toggleSidebar} />
 ```
 
 #### Big Sidebar
