@@ -13,6 +13,7 @@ import vehiclesRouter from "./routes/vehiclesRoutes.js";
 // Middleware
 import notFoundMiddleware from "./middleware/not-found.js";
 import errorHandlerMiddleware from "./middleware/error-handler.js";
+import authenticateUser from "./middleware/auth.js";
 
 const app = express();
 
@@ -33,12 +34,12 @@ app.get("/api/v1", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/vehicles", vehiclesRouter);
+app.use("/api/v1/vehicles", authenticateUser, vehiclesRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 const start = async () => {
   try {

@@ -2672,7 +2672,7 @@ router.route("/updateUser").patch(authenticateUser, updateUser);
 server.js;
 
 import authenticateUser from "./middleware/auth.js";
-app.use("/api/v1/jobs", authenticateUser, jobsRouter);
+app.use("/api/v1/vehicles", authenticateUser, jobsRouter);
 ```
 
 ```js
