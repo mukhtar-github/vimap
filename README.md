@@ -2777,7 +2777,7 @@ export default auth;
 
 #### Update User
 
-```js
+```authController.js
 const updateUser = async (req, res) => {
   const { email, name, lastName, location } = req.body;
   if (!email || !name || !lastName || !location) {
