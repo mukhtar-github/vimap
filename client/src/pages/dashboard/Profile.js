@@ -22,27 +22,34 @@ const Profile = () => {
       <form className="form" onSubmit={handleSubmit}>
         <h3>Profile</h3>
         {showAlert && <Alert />}
-        <div className="form-center"></div>
+        <div className="form-center">
+          <FormRow
+                type="text"
+                name="name"
+                value={name}
+                handleChange={(e) => setName(e.target.value)}
+              />
+              <FormRow
+                type="text"
+                labelText="last name"
+                name="lastName"
+                value={lastName}
+                handleChange={(e) => setLastName(e.target.value)}
+              />
+              <FormRow
+                type="email"
+                name="email"
+                value={email}
+                handleChange={(e) => setEmail(e.target.value)}
+              />
+              <FormRow
+                type="text"
+                name="location"
+                value={location}
+                handleChange={(e) => setLocation(e.target.value)}
+              />
+        </div>
       </form>
-      <FormRow
-        type="text"
-        name="name"
-        value={name}
-        handleChange={(e) => setName(e.target.value)}
-      />
-      <FormRow
-        type="text"
-        labelText="last name"
-        name="lastName"
-        value={lastName}
-        handleChange={(e) => setLastName(e.target.value)}
-      />
-      <FormRow
-        type="email"
-        name="email"
-        value={email}
-        handleChange={(e) => setEmail(e.target.value)}
-      />
     </Wrapper>
   );
 };
