@@ -32,9 +32,16 @@ const Profile = () => {
       />
       <FormRow
         type="text"
+        labelText="last name"
         name="lastName"
         value={lastName}
         handleChange={(e) => setLastName(e.target.value)}
+      />
+      <FormRow
+        type="email"
+        name="email"
+        value={email}
+        handleChange={(e) => setEmail(e.target.value)}
       />
     </Wrapper>
   );
