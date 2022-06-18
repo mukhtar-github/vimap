@@ -17,7 +17,13 @@ const Profile = () => {
     console.log("update user");
   };
 
-  return <h1>Profile Page</h1>;
+  return (
+    <Wrapper>
+      <form className="form" onSubmit={handleSubmit}>
+        <h3>Profile</h3>
+      </form>
+    </Wrapper>
+  );
 };
 
 export default Profile;
