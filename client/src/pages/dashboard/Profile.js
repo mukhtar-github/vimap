@@ -21,7 +21,15 @@ const Profile = () => {
     <Wrapper>
       <form className="form" onSubmit={handleSubmit}>
         <h3>Profile</h3>
+        {showAlert && <Alert />}
+        <div className="form-center"></div>
       </form>
+      <FormRow
+        type="text"
+        name="name"
+        value={name}
+        handleChange={(e) => setName(e.target.value)}
+      />
     </Wrapper>
   );
 };
