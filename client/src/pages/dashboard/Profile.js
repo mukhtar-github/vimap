@@ -14,7 +14,7 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("udate user");
+    console.log("update user");
   };
 
   return <h1>Profile Page</h1>;
