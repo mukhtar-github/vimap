@@ -12,6 +12,11 @@ const Profile = () => {
   const [lastName, setLastName] = useState(user?.lastName);
   const [location, setLocation] = useState(user?.location);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("udate user");
+  };
+
   return <h1>Profile Page</h1>;
 };
 
