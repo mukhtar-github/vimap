@@ -14,10 +14,11 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !email || !lastName || !location) {
-      displayAlert();
-      return;
-    }
+    // remove while testing
+    // if (!name || !email || !lastName || !location) {
+    //   displayAlert();
+    //   return;
+    // }
     updateUser({ name, email, lastName, location });
   };
 
