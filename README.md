@@ -2912,7 +2912,7 @@ export default Profile;
 ```js
 appContext.js;
 
-const updaterUser = async (currentUser) => {
+const updateUser = async (currentUser) => {
   try {
     const { data } = await axios.patch("/api/v1/auth/updateUser", currentUser, {
       headers: {
