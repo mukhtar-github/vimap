@@ -2962,7 +2962,7 @@ const updaterUser = async (currentUser) => {
 ```js
 appContext.js;
 
-// response interceptor
+// request interceptor
 authFetch.interceptors.request.use(
   (config) => {
     config.headers.common["Authorization"] = `Bearer ${state.token}`;

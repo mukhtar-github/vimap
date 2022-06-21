@@ -45,18 +45,17 @@ const AppProvider = ({ children }) => {
     baseURL: "/api/v1",
   });
 
-  // request
+  // request interceptor
   authFetch.interceptors.request.use(
     (config) => {
-      config.headers.common["Authorization"] = `Bearer ${state.token}`;
+      // config.headers.common["Authorization"] = `Bearer ${state.token}`;
       return config;
     },
     (error) => {
       return Promise.reject(error);
     }
   );
-
-  // response
+  // response interceptor
   authFetch.interceptors.response.use(
     (response) => {
       return response;
@@ -186,7 +185,7 @@ const AppProvider = ({ children }) => {
       const { data } = await authFetch.patch("/auth/updateUser", currentUser);
       console.log(data);
     } catch (error) {
-      // console.log(error.response);
+      console.log(error.response);
     }
   };
 
