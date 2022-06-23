@@ -152,6 +152,7 @@ const reducer = (state, action) => {
       alertText: "User Profile Updated!",
     };
   }
+
   if (action.type === UPDATE_USER_ERROR) {
     return {
       ...state,

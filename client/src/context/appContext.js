@@ -50,7 +50,7 @@ const AppProvider = ({ children }) => {
   // request interceptor
   authFetch.interceptors.request.use(
     (config) => {
-      // config.headers.common["Authorization"] = `Bearer ${state.token}`;
+      config.headers.common["Authorization"] = `Bearer ${state.token}`;
       return config;
     },
     (error) => {
