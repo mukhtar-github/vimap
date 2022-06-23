@@ -3028,7 +3028,6 @@ reducer.js
 if (action.type === UPDATE_USER_BEGIN) {
   return { ...state, isLoading: true }
 }
-
 if (action.type === UPDATE_USER_SUCCESS) {
   return {
     ...state,
