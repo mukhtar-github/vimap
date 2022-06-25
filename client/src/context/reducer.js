@@ -1,4 +1,3 @@
-import { initialState } from "./appContext";
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
@@ -11,6 +10,8 @@ import {
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
 } from "./actions";
+
+import { initialState } from "./appContext";
 
 const reducer = (state, action) => {
   if (action.type === DISPLAY_ALERT) {
