@@ -3095,20 +3095,19 @@ const updateUser = async (currentUser) => {
 };
 ```
 
-#### Job Model
+#### Vehicle Model
 
-- Job Model
+- Vehicle Model
 
 ```js
-Job.js;
+Vehicle.js;
 
 import mongoose from "mongoose";
 
-const JobSchema = new mongoose.Schema(
-  {
-    company: {
+const VehicleSchema = new mongoose.Schema({
+    make: {
       type: String,
-      required: [true, "Please provide company name"],
+      required: [true, "Please provide vehicle make"],
       maxlength: 50,
     },
     position: {
