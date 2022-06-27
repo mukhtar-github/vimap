@@ -3118,8 +3118,18 @@ const VehicleSchema = new mongoose.Schema(
     },
     chassisNumber: {
       type: String,
-      default: "Chassis number",
-      required: true,
+      required: [true, "Please provide Chassis number"],
+      maxlength: 50,
+    },
+    insuranceDate: {
+      type: String,
+      required: [true, "Please provide Insurance date"],
+      maxlength: 50,
+    },
+    attachedTo: {
+      type: String,
+      required: [true, "Please provide the vehicle user"],
+      maxlength: 100,
     },
     year: {
       type: String,
@@ -3163,16 +3173,6 @@ const VehicleSchema = new mongoose.Schema(
         "700R16",
       ],
       default: "Rim size",
-    },
-    insuranceDate: {
-      type: String,
-      required: [true, "Please provide Insurance date"],
-      maxlength: 100,
-    },
-    attachedTo: {
-      type: String,
-      default: "Attached to",
-      required: true,
     },
     vehicleLocation: {
       type: String,
