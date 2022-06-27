@@ -3137,7 +3137,7 @@ const VehicleSchema = new mongoose.Schema(
         "2023",
         "2024",
       ],
-      default: "2010",
+      default: "Year of manufacture",
     },
     registration: {
       type: String,
@@ -3146,7 +3146,7 @@ const VehicleSchema = new mongoose.Schema(
     },
     chassisNumber: {
       type: String,
-      default: "chassis",
+      default: "Chassis number",
       required: true,
     },
     rimSize: {
@@ -3162,12 +3162,17 @@ const VehicleSchema = new mongoose.Schema(
         "285/50/R20",
         "700R16",
       ],
-      default: "700R16",
+      default: "Rim size",
     },
     insuranceDate: {
       type: String,
       required: [true, "Please provide Insurance date"],
       maxlength: 100,
+    },
+    attachedTo: {
+      type: String,
+      default: "Attached to",
+      required: true,
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
