@@ -3188,7 +3188,7 @@ const VehicleSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Job", VehicleSchema);
+export default mongoose.model("Vehicle", VehicleSchema);
 ```
 
 #### Create Job
