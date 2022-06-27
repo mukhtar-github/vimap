@@ -3111,6 +3111,16 @@ const VehicleSchema = new mongoose.Schema(
       required: [true, "Please provide vehicle make"],
       maxlength: 50,
     },
+    registration: {
+      type: String,
+      required: [true, "Please provide registration"],
+      maxlength: 50,
+    },
+    chassisNumber: {
+      type: String,
+      default: "Chassis number",
+      required: true,
+    },
     year: {
       type: String,
       enum: [
@@ -3138,16 +3148,6 @@ const VehicleSchema = new mongoose.Schema(
         "2024",
       ],
       default: "Year of manufacture",
-    },
-    registration: {
-      type: String,
-      required: [true, "Please provide registration"],
-      maxlength: 50,
-    },
-    chassisNumber: {
-      type: String,
-      default: "Chassis number",
-      required: true,
     },
     rimSize: {
       type: String,
