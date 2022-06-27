@@ -70,6 +70,11 @@ const VehicleSchema = new mongoose.Schema(
       default: "Attached to",
       required: true,
     },
+    vehicleLocation: {
+      type: String,
+      default: "My city",
+      required: true,
+    },
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: "User",
