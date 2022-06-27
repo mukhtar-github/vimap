@@ -53,7 +53,7 @@ const VehicleSchema = new mongoose.Schema(
         "2023",
         "2024",
       ],
-      default: "Year of manufacture",
+      default: "2003",
     },
     rimSize: {
       type: String,
@@ -68,7 +68,7 @@ const VehicleSchema = new mongoose.Schema(
         "285/50/R20",
         "700R16",
       ],
-      default: "Rim size",
+      default: "700R16",
     },
     vehicleLocation: {
       type: String,

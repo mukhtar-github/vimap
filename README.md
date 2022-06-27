@@ -3194,23 +3194,30 @@ export default mongoose.model("Vehicle", VehicleSchema);
 #### Create Job
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-import Job from "../models/Job.js";
+import Vehicle from "../models/Vehicle.js";
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError, NotFoundError } from "../errors/index.js";
 
-const createJob = async (req, res) => {
-  const { position, company } = req.body;
+const createVehicle = async (req, res) => {
+  const { make, registration, chassisNumber, insuranceDate, attachedTo } =
+    req.body;
 
-  if (!position || !company) {
+  if (
+    !make ||
+    !registration ||
+    !chassisNumber ||
+    !insuranceDate ||
+    !attachedTo
+  ) {
     throw new BadRequestError("Please Provide All Values");
   }
 
   req.body.createdBy = req.user.userId;
 
-  const job = await Job.create(req.body);
-  res.status(StatusCodes.CREATED).json({ job });
+  const vehicle = await Vehicle.create(req.body);
+  res.status(StatusCodes.CREATED).json({ vehicle });
 };
 ```
 
