@@ -3236,6 +3236,59 @@ const initialState = {
   statusOptions: ["pending", "interview", "declined"],
   status: "pending",
 };
+
+appContext.js;
+const initialState = {
+  isEditing: false,
+  editJobId: "",
+  make: "",
+  registration: "",
+  chassisNumber: "",
+  insuranceDate: "",
+  attachedTo: "",
+  // jobLocation
+  yearOptions: [
+    "2003",
+    "2004",
+    "2005",
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+  ],
+  year: "2003",
+  rimSizeOptions: [
+    "195-R15C",
+    "205/70/R15",
+    "205-R16C",
+    "215/55/R17",
+    "265/65/R17",
+    "235/45/R18",
+    "265/60/R18",
+    "285/50/R20",
+    "700R16",
+  ],
+  rimSize: "700R16",
+  jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
+  jobType: "full-time",
+  statusOptions: ["pending", "interview", "declined"],
+  status: "pending",
+};
 ```
 
 #### AddJob Page - Setup
