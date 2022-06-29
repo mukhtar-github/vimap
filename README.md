@@ -3287,34 +3287,44 @@ const initialState = {
 };
 ```
 
-#### AddJob Page - Setup
+#### AddVehicle Page - Setup
 
 ```js
 import { FormRow, Alert } from "../../components";
 import { useAppContext } from "../../context/appContext";
 import Wrapper from "../../assets/wrappers/DashboardFormPage";
-const AddJob = () => {
+const AddVehicle = () => {
   const {
     isEditing,
     showAlert,
     displayAlert,
-    position,
-    company,
-    jobLocation,
-    jobType,
-    jobTypeOptions,
-    status,
-    statusOptions,
+    make,
+    registration,
+    chassisNumber,
+    insuranceDate,
+    attachedTo,
+    vehicleLocation,
+    year,
+    yearOptions,
+    rimSize,
+    rimSizeOptions,
   } = useAppContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!position || !company || !jobLocation) {
+    if (
+      !make ||
+      !registration ||
+      !chassisNumber ||
+      !insuranceDate ||
+      !attachedTo ||
+      !vehicleLocation
+    ) {
       displayAlert();
       return;
     }
-    console.log("create job");
+    console.log("create vehicle");
   };
 
   const handleJobInput = (e) => {
