@@ -3240,13 +3240,13 @@ const initialState = {
 appContext.js;
 const initialState = {
   isEditing: false,
-  editJobId: "",
+  editVehicleId: "",
   make: "",
   registration: "",
   chassisNumber: "",
   insuranceDate: "",
   attachedTo: "",
-  // jobLocation
+  vehicleLocation: userLocation || "",
   yearOptions: [
     "2003",
     "2004",
@@ -3284,10 +3284,6 @@ const initialState = {
     "700R16",
   ],
   rimSize: "700R16",
-  jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
-  jobType: "full-time",
-  statusOptions: ["pending", "interview", "declined"],
-  status: "pending",
 };
 ```
 
