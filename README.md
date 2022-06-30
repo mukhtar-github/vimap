@@ -3339,32 +3339,57 @@ const AddVehicle = () => {
         <h3>{isEditing ? "edit vehicle" : "add vehicle"} </h3>
         {showAlert && <Alert />}
 
-        {/* position */}
+        {/* make */}
         <div className="form-center">
           <FormRow
             type="text"
-            name="position"
-            value={position}
+            name="make"
+            value={make}
             handleChange={handleVehicleInput}
           />
-          {/* company */}
+          {/* registration */}
           <FormRow
             type="text"
-            name="company"
-            value={company}
-            handleChange={handleJobInput}
+            name="registration"
+            value={registration}
+            handleChange={handleVehicleInput}
+          />
+          {/* chassis number */}
+          <FormRow
+            type="text"
+            labelText="chassis number"
+            name="chassisNumber"
+            value={chassisNumber}
+            handleChange={handleVehicleInput}
+          />
+          {/* insurance date */}
+          <FormRow
+            type="text"
+            labelText="insurance date"
+            name="insuranceDate"
+            value={insuranceDate}
+            handleChange={handleVehicleInput}
+          />
+          {/* attached to */}
+          <FormRow
+            type="text"
+            labelText="attached to"
+            name="attachedTo"
+            value={attachedTo}
+            handleChange={handleVehicleInput}
           />
           {/* location */}
           <FormRow
             type="text"
             labelText="location"
-            name="jobLocation"
-            value={jobLocation}
-            handleChange={handleJobInput}
+            name="vehicleLocation"
+            value={vehicleLocation}
+            handleChange={handleVehicleInput}
           />
-          {/* job type */}
 
-          {/* job status */}
+          {/* vehicle type */}
+
+          {/* vehicle status */}
 
           <div className="btn-container">
             <button
