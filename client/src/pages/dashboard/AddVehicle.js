@@ -97,9 +97,9 @@ const AddVehicle = () => {
             handleChange={handleVehicleInput}
           />
 
-          {/* vehicle type */}
+          {/* vehicle year */}
 
-          {/* vehicle status */}
+          {/* vehicle rim size */}
 
           <div className="btn-container">
             <button
