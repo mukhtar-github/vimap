@@ -3327,7 +3327,7 @@ const AddVehicle = () => {
     console.log("create vehicle");
   };
 
-  const handleJobInput = (e) => {
+  const handleVehicleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     console.log(`${name}:${value}`);
@@ -3336,7 +3336,7 @@ const AddVehicle = () => {
   return (
     <Wrapper>
       <form className="form">
-        <h3>{isEditing ? "edit job" : "add job"} </h3>
+        <h3>{isEditing ? "edit vehicle" : "add vehicle"} </h3>
         {showAlert && <Alert />}
 
         {/* position */}
@@ -3345,7 +3345,7 @@ const AddVehicle = () => {
             type="text"
             name="position"
             value={position}
-            handleChange={handleJobInput}
+            handleChange={handleVehicleInput}
           />
           {/* company */}
           <FormRow

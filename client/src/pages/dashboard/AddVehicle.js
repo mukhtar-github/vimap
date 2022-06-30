@@ -37,7 +37,7 @@ const AddVehicle = () => {
     console.log("create vehicle");
   };
 
-  const handleJobInput = (e) => {
+  const handleVehicleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     console.log(`${name}:${value}`);
