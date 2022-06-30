@@ -72,14 +72,6 @@ const AddVehicle = () => {
             value={chassisNumber}
             handleChange={handleVehicleInput}
           />
-          {/* insurance date */}
-          <FormRow
-            type="text"
-            labelText="insurance date"
-            name="insuranceDate"
-            value={insuranceDate}
-            handleChange={handleVehicleInput}
-          />
           {/* attached to */}
           <FormRow
             type="text"
@@ -94,6 +86,14 @@ const AddVehicle = () => {
             labelText="location"
             name="vehicleLocation"
             value={vehicleLocation}
+            handleChange={handleVehicleInput}
+          />
+          {/* insurance date */}
+          <FormRow
+            type="text"
+            labelText="insurance date"
+            name="insuranceDate"
+            value={insuranceDate}
             handleChange={handleVehicleInput}
           />
 
