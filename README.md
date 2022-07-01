@@ -3413,19 +3413,19 @@ export default AddJob;
 
 ```js
 return (
-  // job type
+  // vehicle year
   <div className="form-row">
-    <label htmlFor="jobType" className="form-label">
-      job type
+    <label htmlFor="year" className="form-label">
+      vehicle year
     </label>
 
     <select
-      name="jobType"
-      value={jobType}
-      onChange={handleJobInput}
+      name="year"
+      value={year}
+      onChange={handleVehicleInput}
       className="form-select"
     >
-      {jobTypeOptions.map((itemValue, index) => {
+      {yearOptions.map((itemValue, index) => {
         return (
           <option key={index} value={itemValue}>
             {itemValue}

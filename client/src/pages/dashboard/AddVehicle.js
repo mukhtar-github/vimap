@@ -98,6 +98,26 @@ const AddVehicle = () => {
           />
 
           {/* vehicle year */}
+          <div className="form-row">
+            <label htmlFor="year" className="form-label">
+              vehicle year
+            </label>
+
+            <select
+              name="year"
+              value={year}
+              onChange={handleVehicleInput}
+              className="form-select"
+            >
+              {yearOptions.map((itemValue, index) => {
+                return (
+                  <option key={index} value={itemValue}>
+                    {itemValue}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
 
           {/* vehicle rim size */}
 
