@@ -111,6 +111,7 @@ const AddVehicle = () => {
             handleChange={handleVehicleInput}
             list={rimSizeOptions}
           />
+          {/*btn container*/}
           <div className="btn-container">
             <button
               className="btn btn-block submit-btn"
