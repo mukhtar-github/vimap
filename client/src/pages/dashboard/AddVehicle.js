@@ -96,8 +96,13 @@ const AddVehicle = () => {
             value={insuranceDate}
             handleChange={handleVehicleInput}
           />
-
           {/* vehicle year */}
+          <FormRowSelect
+            name="year"
+            value={year}
+            handleChange={handleVehicleInput}
+            list={yearOptions}
+          />
 
           {/* vehicle rim size */}
 

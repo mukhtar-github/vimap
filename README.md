@@ -3476,13 +3476,12 @@ AddJob.js;
 
 return (
   <>
-    {/* job status */}
-
+    {/* vehicle year */}
     <FormRowSelect
-      name="status"
-      value={status}
-      handleChange={handleJobInput}
-      list={statusOptions}
+      name="year"
+      value={year}
+      handleChange={handleVehicleInput}
+      list={yearOptions}
     />
 
     {/* job type */}
