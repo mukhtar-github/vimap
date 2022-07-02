@@ -3484,13 +3484,13 @@ return (
       list={yearOptions}
     />
 
-    {/* job type */}
+    {/* vehicle rim size */}
     <FormRowSelect
-      labelText="type"
-      name="jobType"
-      value={jobType}
-      handleChange={handleJobInput}
-      list={jobTypeOptions}
+      name="rimSize"
+      labelText="rim size"
+      value={rimSize}
+      handleChange={handleVehicleInput}
+      list={rimSizeOptions}
     />
   </>
 );
