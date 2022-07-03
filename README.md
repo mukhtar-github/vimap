@@ -3528,11 +3528,11 @@ if (action.type === HANDLE_CHANGE) {
 ```
 
 ```js
-AddJob.js;
+AddVehicle.js;
 
 const { handleChange } = useAppContext();
 
-const handleJobInput = (e) => {
+const handleVehicleInput = (e) => {
   handleChange({ name: e.target.name, value: e.target.value });
 };
 ```

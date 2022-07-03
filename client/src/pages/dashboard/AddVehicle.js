@@ -18,6 +18,7 @@ const AddVehicle = () => {
     yearOptions,
     rimSize,
     rimSizeOptions,
+    handleChange,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -40,7 +41,7 @@ const AddVehicle = () => {
   const handleVehicleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(`${name}:${value}`);
+    handleChange({ name, value });
   };
 
   return (
