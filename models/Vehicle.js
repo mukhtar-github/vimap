@@ -72,7 +72,7 @@ const VehicleSchema = new mongoose.Schema(
     },
     vehicleLocation: {
       type: String,
-      default: "My city",
+      default: "my city",
       required: true,
     },
     createdBy: {
