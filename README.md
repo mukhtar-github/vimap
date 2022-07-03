@@ -3561,12 +3561,15 @@ reducer.js;
 if (action.type === CLEAR_VALUES) {
   const initialState = {
     isEditing: false,
-    editJobId: "",
-    position: "",
-    company: "",
-    jobLocation: state.userLocation,
-    jobType: "full-time",
-    status: "pending",
+    editVehicleId: "",
+    make: "",
+    registration: "",
+    chassisNumber: "",
+    insuranceDate: "",
+    attachedTo: "",
+    vehicleLocation: state.userLocation,
+    year: "2003",
+    rimSize: "700R16",
   };
   return { ...state, ...initialState };
 }
