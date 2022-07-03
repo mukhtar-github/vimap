@@ -3576,14 +3576,13 @@ if (action.type === CLEAR_VALUES) {
 ```
 
 ```js
-AddJob.js;
+AddVehicle.js;
 
 const { clearValues } = useAppContext();
 
 return (
+  {/* submit button */}
   <div className="btn-container">
-    {/* submit button */}
-
     <button
       className="btn btn-block clear-btn"
       onClick={(e) => {

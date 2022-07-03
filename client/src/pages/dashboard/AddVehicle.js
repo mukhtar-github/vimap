@@ -19,6 +19,7 @@ const AddVehicle = () => {
     rimSize,
     rimSizeOptions,
     handleChange,
+    clearValues,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -120,6 +121,16 @@ const AddVehicle = () => {
               onClick={handleSubmit}
             >
               submit
+            </button>
+            {/* submit button */}
+            <button
+              className="btn btn-block clear-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                clearValues();
+              }}
+            >
+              clear
             </button>
           </div>
         </div>
