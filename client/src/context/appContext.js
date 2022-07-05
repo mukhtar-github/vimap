@@ -14,6 +14,9 @@ import {
   UPDATE_USER_ERROR,
   HANDLE_CHANGE,
   CLEAR_VALUES,
+  CREATE_VEHICLE_BEGIN,
+  CREATE_VEHICLE_SUCCESS,
+  CREATE_VEHICLE_ERROR,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -254,6 +257,7 @@ const AppProvider = ({ children }) => {
         updateUser,
         handleChange,
         clearValues,
+        createVehicle,
       }}
     >
       {children}
