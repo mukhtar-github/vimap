@@ -39,7 +39,7 @@ const AddVehicle = () => {
       return;
     }
     if (isEditing) {
-      // eventually editJob()
+      // eventually editVehicle()
       return;
     }
     createVehicle();
