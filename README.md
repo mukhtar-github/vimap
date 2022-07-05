@@ -3611,27 +3611,39 @@ export const CREATE_VEHICLE_ERROR = "CREATE_VEHICLE_ERROR";
 ```js
 appContext.js;
 
-const createJob = async () => {
-  dispatch({ type: CREATE_JOB_BEGIN });
+const createVehicle = async () => {
+  dispatch({ type: CREATE_VEHICLE_BEGIN });
   try {
-    const { position, company, jobLocation, jobType, status } = state;
+    const {
+      make,
+      registration,
+      chassisNumber,
+      insuranceDate,
+      attachedTo,
+      vehicleLocation,
+      year,
+      rimSize,
+    } = state;
 
-    await authFetch.post("/jobs", {
-      company,
-      position,
-      jobLocation,
-      jobType,
-      status,
+    await authFetch.post("/vehicles", {
+      make,
+      registration,
+      chassisNumber,
+      insuranceDate,
+      attachedTo,
+      vehicleLocation,
+      year,
+      rimSize,
     });
     dispatch({
-      type: CREATE_JOB_SUCCESS,
+      type: CREATE_VEHICLE_SUCCESS,
     });
     // call function instead clearValues()
     dispatch({ type: CLEAR_VALUES });
   } catch (error) {
     if (error.response.status === 401) return;
     dispatch({
-      type: CREATE_JOB_ERROR,
+      type: CREATE_VEHICLE_ERROR,
       payload: { msg: error.response.data.msg },
     });
   }
