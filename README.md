@@ -3295,6 +3295,7 @@ import { useAppContext } from "../../context/appContext";
 import Wrapper from "../../assets/wrappers/DashboardFormPage";
 const AddVehicle = () => {
   const {
+    isLoading
     isEditing,
     showAlert,
     displayAlert,
@@ -3396,6 +3397,7 @@ const AddVehicle = () => {
               className="btn btn-block submit-btn"
               type="submit"
               onClick={handleSubmit}
+              disabled={isLoading}
             >
               submit
             </button>
@@ -3406,7 +3408,7 @@ const AddVehicle = () => {
   );
 };
 
-export default AddJob;
+export default AddVehicle;
 ```
 
 #### Select Input
@@ -3472,7 +3474,7 @@ export default FormRowSelect;
 ```
 
 ```js
-AddJob.js;
+AddVehicle.js;
 
 return (
   <>
