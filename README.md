@@ -3652,23 +3652,30 @@ const createVehicle = async () => {
 ```
 
 ```js
-AddJob.js;
+AddVehicle.js;
 
-const { createJob } = useAppContext();
+const { createVehicle } = useAppContext();
 
 const handleSubmit = (e) => {
   e.preventDefault();
   // while testing
 
-  // if (!position || !company || !jobLocation) {
-  //   displayAlert()
-  //   return
+  // if (
+  //   !make ||
+  //   !registration ||
+  //   !chassisNumber ||
+  //   !insuranceDate ||
+  //   !attachedTo ||
+  //   !vehicleLocation
+  // ) {
+  //   displayAlert();
+  //   return;
   // }
   if (isEditing) {
     // eventually editJob()
     return;
   }
-  createJob();
+  createVehicle();
 };
 ```
 

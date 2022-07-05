@@ -21,6 +21,7 @@ const AddVehicle = () => {
     rimSizeOptions,
     handleChange,
     clearValues,
+    createVehicle,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -37,7 +38,11 @@ const AddVehicle = () => {
       displayAlert();
       return;
     }
-    console.log("create vehicle");
+    if (isEditing) {
+      // eventually editJob()
+      return;
+    }
+    createVehicle();
   };
 
   const handleVehicleInput = (e) => {
