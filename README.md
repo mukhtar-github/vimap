@@ -3682,19 +3682,19 @@ const handleSubmit = (e) => {
 ```js
 reducer.js;
 
-if (action.type === CREATE_JOB_BEGIN) {
+if (action.type === CREATE_VEHICLE_BEGIN) {
   return { ...state, isLoading: true };
 }
-if (action.type === CREATE_JOB_SUCCESS) {
+if (action.type === CREATE_VEHICLE_SUCCESS) {
   return {
     ...state,
     isLoading: false,
     showAlert: true,
     alertType: "success",
-    alertText: "New Job Created!",
+    alertText: "New Vehicle Created!",
   };
 }
-if (action.type === CREATE_JOB_ERROR) {
+if (action.type === CREATE_VEHICLE_ERROR) {
   return {
     ...state,
     isLoading: false,
