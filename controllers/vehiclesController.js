@@ -27,7 +27,11 @@ const deleteVehicle = async (req, res) => {
 };
 
 const getAllVehicles = async (req, res) => {
-  return res.send("get all vehicles");
+  const vehicles = await Vehicle.find({ createdBy: req.user.userId });
+
+  res
+    .status(StatusCodes.OK)
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 
 const updateVehicle = async (req, res) => {

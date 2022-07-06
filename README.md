@@ -3705,17 +3705,17 @@ if (action.type === CREATE_VEHICLE_ERROR) {
 }
 ```
 
-#### Get All Jobs
+#### Get All Vehicles
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const getAllJobs = async (req, res) => {
-  const jobs = await Job.find({ createdBy: req.user.userId });
+const getAllVehicles = async (req, res) => {
+  const vehicles = await Vehicle.find({ createdBy: req.user.userId });
 
   res
     .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 ```
 
