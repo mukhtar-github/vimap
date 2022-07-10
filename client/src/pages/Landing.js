@@ -17,7 +17,7 @@ const Landing = () => {
             vehicle <span>information</span> app
           </h1>
           <p>
-            The software's features are; but are not limited to the Collection
+            The Software's main features are the Collection
             and Storage of Vehicles Information, Inventory, GPS tracking, and
             Insurance updates.
           </p>
