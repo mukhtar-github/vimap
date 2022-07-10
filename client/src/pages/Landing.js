@@ -17,9 +17,8 @@ const Landing = () => {
             vehicle <span>information</span> app
           </h1>
           <p>
-            The Software's main features are the Collection
-            and Storage of Vehicles Information, Inventory, GPS tracking, and
-            Insurance updates.
+            The Software's main features are the Collection and Storage of
+            Vehicle Information, Inventory, and Insurance updates.
           </p>
           <Link to="/register" className="btn btn-hero">
             Login / Register
