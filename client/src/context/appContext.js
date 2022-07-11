@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useEffect } from "react";
 import reducer from "./reducer";
 import axios from "axios";
 import {
@@ -252,6 +252,32 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const getVehicles = async () => {
+    let url = `/vehicles`;
+
+    dispatch({ type: GET_VEHICLES_BEGIN });
+    try {
+      const { data } = await authFetch(url);
+      const { vehicles, totalVehicles, numOfPages } = data;
+      dispatch({
+        type: GET_VEHICLES_SUCCESS,
+        payload: {
+          vehicles,
+          totalVehicles,
+          numOfPages,
+        },
+      });
+    } catch (error) {
+      console.log(error.response);
+      logoutUser();
+    }
+    clearAlert();
+  };
+
+  useEffect(() => {
+    getVehicles();
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -264,6 +290,7 @@ const AppProvider = ({ children }) => {
         handleChange,
         clearValues,
         createVehicle,
+        getVehicles,
       }}
     >
       {children}

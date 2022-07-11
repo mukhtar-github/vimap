@@ -3745,18 +3745,18 @@ appContext.js
 
 import React, { useReducer, useContext, useEffect } from 'react'
 
-const getJobs = async () => {
-  let url = `/jobs`
+const getVehicles = async () => {
+  let url = `/vehicles`
 
-  dispatch({ type: GET_JOBS_BEGIN })
+  dispatch({ type: GET_VEHICLES_BEGIN })
   try {
     const { data } = await authFetch(url)
-    const { jobs, totalJobs, numOfPages } = data
+    const { vehicles, totalVehicles, numOfPages } = data
     dispatch({
-      type: GET_JOBS_SUCCESS,
+      type: GET_VEHICLES_SUCCESS,
       payload: {
-        jobs,
-        totalJobs,
+        vehicles,
+        totalVehicles,
         numOfPages,
       },
     })
@@ -3768,10 +3768,10 @@ const getJobs = async () => {
 }
 
 useEffect(() => {
-  getJobs()
+  getVehicles()
 }, [])
 
-value={{getJobs}}
+value={{getVehicles}}
 
 ```
 
