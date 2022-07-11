@@ -3719,14 +3719,14 @@ const getAllVehicles = async (req, res) => {
 };
 ```
 
-#### Jobs State Values
+#### Vehicles State Values
 
 ```js
 appContext.js;
 
 const initialState = {
-  jobs: [],
-  totalJobs: 0,
+  vehicles: [],
+  totalVehicles: 0,
   numOfPages: 1,
   page: 1,
 };

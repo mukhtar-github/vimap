@@ -77,6 +77,10 @@ const initialState = {
     "700R16",
   ],
   rimSize: "700R16",
+  vehicles: [],
+  totalVehicles: 0,
+  numOfPages: 1,
+  page: 1,
 };
 
 const AppContext = React.createContext();
