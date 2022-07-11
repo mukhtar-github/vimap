@@ -17,6 +17,8 @@ import {
   CREATE_VEHICLE_BEGIN,
   CREATE_VEHICLE_SUCCESS,
   CREATE_VEHICLE_ERROR,
+  GET_VEHICLES_BEGIN,
+  GET_VEHICLES_SUCCESS,
 } from "./actions";
 
 const token = localStorage.getItem("token");

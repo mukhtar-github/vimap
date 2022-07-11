@@ -3732,12 +3732,12 @@ const initialState = {
 };
 ```
 
-#### Get All Jobs Request
+#### Get All Vehicles Request
 
 ```js
 actions.js;
-export const GET_JOBS_BEGIN = "GET_JOBS_BEGIN";
-export const GET_JOBS_SUCCESS = "GET_JOBS_SUCCESS";
+export const GET_VEHICLES_BEGIN = "GET_VEHICLES_BEGIN";
+export const GET_VEHICLES_SUCCESS = "GET_VEHICLES_SUCCESS";
 ```
 
 ```js
