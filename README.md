@@ -2052,7 +2052,7 @@ if (action.type === SETUP_USER_SUCCESS) {
     token: action.payload.token,
     user: action.payload.user,
     userLocation: action.payload.location,
-    jobLocation: action.payload.location,
+    vehicleLocation: action.payload.location,
     showAlert: true,
     alertType: "success",
     alertText: action.payload.alertText,
@@ -2409,7 +2409,7 @@ if (action.type === LOGOUT_USER) {
     user: null,
     token: null,
     userLocation: "",
-    jobLocation: "",
+    vehicleLocation: "",
   };
 }
 ```
@@ -3035,7 +3035,7 @@ if (action.type === UPDATE_USER_SUCCESS) {
     token:action.payload.token
     user: action.payload.user,
     userLocation: action.payload.location,
-    jobLocation: action.payload.location,
+    vehicleLocation: action.payload.location,
     showAlert: true,
     alertType: 'success',
     alertText: 'User Profile Updated!',

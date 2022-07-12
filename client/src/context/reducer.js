@@ -49,7 +49,7 @@ const reducer = (state, action) => {
       token: action.payload.token,
       user: action.payload.user,
       userLocation: action.payload.location,
-      jobLocation: action.payload.location,
+      vehicleLocation: action.payload.location,
       showAlert: true,
       alertType: "success",
       alertText: action.payload.alertText,
@@ -75,7 +75,7 @@ const reducer = (state, action) => {
       user: null,
       token: null,
       userLocation: "",
-      jobLocation: "",
+      vehicleLocation: "",
     };
   }
 
@@ -89,7 +89,7 @@ const reducer = (state, action) => {
       token: action.payload.token,
       user: action.payload.user,
       userLocation: action.payload.location,
-      jobLocation: action.payload.location,
+      vehicleLocation: action.payload.location,
       showAlert: true,
       alertType: "success",
       alertText: "User Profile Updated!",
