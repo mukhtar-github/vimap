@@ -3778,15 +3778,15 @@ value={{getVehicles}}
 ```js
 reducer.js;
 
-if (action.type === GET_JOBS_BEGIN) {
+if (action.type === GET_VEHICLES_BEGIN) {
   return { ...state, isLoading: true, showAlert: false };
 }
-if (action.type === GET_JOBS_SUCCESS) {
+if (action.type === GET_VEHICLES_SUCCESS) {
   return {
     ...state,
     isLoading: false,
-    jobs: action.payload.jobs,
-    totalJobs: action.payload.totalJobs,
+    vehicles: action.payload.vehicles,
+    totalVehicles: action.payload.totalVehicles,
     numOfPages: action.payload.numOfPages,
   };
 }

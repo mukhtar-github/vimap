@@ -147,6 +147,19 @@ const reducer = (state, action) => {
     };
   }
 
+  if (action.type === GET_VEHICLES_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === GET_VEHICLES_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      vehicles: action.payload.vehicles,
+      totalVehicles: action.payload.totalVehicles,
+      numOfPages: action.payload.numOfPages,
+    };
+  }
+
   throw new Error(`no such action :${action.type}`);
 };
 
