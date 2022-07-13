@@ -1,8 +1,13 @@
 import React from "react";
-import { SearchContainer, VehiclesContainer } from "../../components";
+import { VehiclesContainer, SearchContainer } from "../../components";
 
 const AllVehicles = () => {
-  return <h1>All Vehicles Page</h1>;
+  return (
+    <>
+      <SearchContainer />
+      <VehiclesContainer />
+    </>
+  );
 };
 
 export default AllVehicles;
