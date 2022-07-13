@@ -3813,8 +3813,11 @@ const AllVehicles = () => {
   );
 };
 
-export default AllJobs;
+export default AllVehicles;
 ```
+
+- create in components folder
+- Loading export
 
 ```js
 JobsContainer.js;
