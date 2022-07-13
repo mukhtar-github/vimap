@@ -5,6 +5,9 @@ import BigSidebar from "./BigSidebar";
 import SmallSidebar from "./SmallSidebar";
 import Navbar from "./Navbar";
 import FormRowSelect from "./FormRowSelect";
+import SearchContainer from "./components/SearchContainer";
+import VehiclesContainer from "./components/VehiclesContainer";
+
 export {
   Logo,
   FormRow,
@@ -13,4 +16,6 @@ export {
   SmallSidebar,
   FormRowSelect,
   Navbar,
+  SearchContainer,
+  VehiclesContainer,
 };
