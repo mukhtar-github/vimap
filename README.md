@@ -3820,44 +3820,45 @@ export default AllVehicles;
 - Loading export
 
 ```js
-JobsContainer.js;
+VehiclesContainer.js;
 import { useAppContext } from "../context/appContext";
 import { useEffect } from "react";
 import Loading from "./Loading";
-import Job from "./Job";
-import Wrapper from "../assets/wrappers/JobsContainer";
+import Vehicle from "./Vehicle";
+import Wrapper from "../assets/wrappers/VehiclesContainer";
 
-const JobsContainer = () => {
-  const { getJobs, jobs, isLoading, page, totalJobs } = useAppContext();
+const VehiclesContainer = () => {
+  const { getVehicles, vehicles, isLoading, page, totalVehicles } =
+    useAppContext();
   useEffect(() => {
-    getJobs();
+    getVehicles();
   }, []);
 
   if (isLoading) {
     return <Loading center />;
   }
-  if (jobs.length === 0) {
+  if (vehicles.length === 0) {
     return (
       <Wrapper>
-        <h2>No jobs to display...</h2>
+        <h2>No vehicles to display...</h2>
       </Wrapper>
     );
   }
   return (
     <Wrapper>
       <h5>
-        {totalJobs} job{jobs.length > 1 && "s"} found
+        {totalVehicles} vehicle{vehicles.length > 1 && "s"} found
       </h5>
-      <div className="jobs">
-        {jobs.map((job) => {
-          return <Job key={job._id} {...job} />;
+      <div className="vehicles">
+        {vehicles.map((vehicle) => {
+          return <Vehicle key={vehicle._id} {...vehicle} />;
         })}
       </div>
     </Wrapper>
   );
 };
 
-export default JobsContainer;
+export default VehiclesContainer;
 ```
 
 ```js
