@@ -3792,19 +3792,19 @@ if (action.type === GET_VEHICLES_SUCCESS) {
 }
 ```
 
-#### AllJobs Page Setup
+#### AllVehicles Page Setup
 
 - create
 - SearchContainer export
-- JobsContainer export
-- Job
-- JobInfo
+- VehiclesContainer export
+- Vehicle
+- VehicleInfo
 
 ```js
-AllJobs.js;
+AllVehicles.js;
 
-import { JobsContainer, SearchContainer } from "../../components";
-const AllJobs = () => {
+import { VehiclesContainer, SearchContainer } from "../../components";
+const AllVehicles = () => {
   return (
     <>
       <SearchContainer />
