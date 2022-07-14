@@ -3896,22 +3896,22 @@ npm install moment
 ```
 
 ```js
-Job.js;
+Vehicle.js;
 
 import moment from "moment";
 
-const Job = ({ company, createdAt }) => {
+const Vehicle = ({ make, createdAt }) => {
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
   return (
     <div>
-      <h5>{company}</h5>
+      <h5>{make}</h5>
       <h5>{date}</h5>
     </div>
   );
 };
 
-export default Job;
+export default Vehicle;
 ```
 
 #### Job Component - Setup
