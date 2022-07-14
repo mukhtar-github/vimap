@@ -3871,15 +3871,15 @@ export default VehiclesContainer;
 ```
 
 ```js
-Job.js;
+Vehicle.js;
 
 import moment from "moment";
 
-const Job = ({ company }) => {
-  return <h5>{company}</h5>;
+const Vehicle = ({ make }) => {
+  return <h5>{make}</h5>;
 };
 
-export default Job;
+export default Vehicle;
 ```
 
 #### Moment.js

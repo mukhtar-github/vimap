@@ -1,7 +1,8 @@
 import React from "react";
+import moment from "moment";
 
-const Vehicle = ({ registration }) => {
-  return <h5>{registration}</h5>;
+const Vehicle = ({ make }) => {
+  return <h5>{make}</h5>;
 };
 
 export default Vehicle;
