@@ -3820,6 +3820,14 @@ export default AllVehicles;
 - Loading export
 
 ```js
+const Loading = ({ center }) => {
+  return <div className={center ? "loading loading-center" : "loading"}></div>;
+};
+
+export default Loading;
+```
+
+```js
 VehiclesContainer.js;
 import { useAppContext } from "../context/appContext";
 import { useEffect } from "react";
