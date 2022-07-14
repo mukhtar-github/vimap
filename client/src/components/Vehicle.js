@@ -1,7 +1,7 @@
 import React from "react";
 
-const Vehicle = () => {
-  return <h2>single vehicle</h2>;
+const Vehicle = ({ registration }) => {
+  return <h5>{registration}</h5>;
 };
 
 export default Vehicle;
