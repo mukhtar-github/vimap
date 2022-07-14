@@ -3862,6 +3862,7 @@ const VehiclesContainer = () => {
           return <Vehicle key={vehicle._id} {...vehicle} />;
         })}
       </div>
+      {/* pagination buttons */}
     </Wrapper>
   );
 };
