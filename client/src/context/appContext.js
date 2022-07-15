@@ -274,6 +274,13 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const setEditVehicle = (id) => {
+    console.log(`set edit vehicle : ${id}`);
+  };
+  const deleteVehicle = (id) => {
+    console.log(`delete vehicle : ${id}`);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -287,6 +294,8 @@ const AppProvider = ({ children }) => {
         clearValues,
         createVehicle,
         getVehicles,
+        setEditVehicle,
+        deleteVehicle,
       }}
     >
       {children}

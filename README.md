@@ -3914,18 +3914,18 @@ const Vehicle = ({ make, createdAt }) => {
 export default Vehicle;
 ```
 
-#### Job Component - Setup
+#### Vehicle Component - Setup
 
 ```js
 appContext.js
 
-const setEditJob = (id) => {
-  console.log(`set edit job : ${id}`)
+const setEditVehicle = (id) => {
+  console.log(`set edit vehicle : ${id}`)
 }
-const deleteJob = (id) =>{
-  console.log(`delete : ${id}`)
+const deleteVehicle = (id) =>{
+  console.log(`delete vehicle : ${id}`)
 }
-value={{setEditJob,deleteJob}}
+value={{setEditVehicle,deleteVehicle}}
 ```
 
 ```js
