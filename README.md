@@ -3929,15 +3929,15 @@ value={{setEditVehicle,deleteVehicle}}
 ```
 
 ```js
-Job.js;
+Vehicle.js;
 
 import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
-import Wrapper from "../assets/wrappers/Job";
-import JobInfo from "./JobInfo";
+import Wrapper from "../assets/wrappers/Vehicle";
+import VehicleInfo from "./VehicleInfo";
 
-const Job = ({
+const Vehicle = ({
   _id,
   position,
   company,
