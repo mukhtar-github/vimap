@@ -214,7 +214,7 @@ const AppProvider = ({ children }) => {
         attachedTo,
         vehicleLocation,
         year,
-        rimSize,
+        status,
       } = state;
 
       await authFetch.post("/vehicles", {
@@ -225,7 +225,7 @@ const AppProvider = ({ children }) => {
         attachedTo,
         vehicleLocation,
         year,
-        rimSize,
+        status,
       });
       dispatch({
         type: CREATE_VEHICLE_SUCCESS,

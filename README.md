@@ -3579,7 +3579,7 @@ return (
 );
 ```
 
-#### Create Job
+#### Create Vehicle
 
 ```js
 actions.js;
@@ -3603,7 +3603,7 @@ const createVehicle = async () => {
       attachedTo,
       vehicleLocation,
       year,
-      rimSize,
+      status,
     } = state;
 
     await authFetch.post("/vehicles", {
@@ -3614,7 +3614,7 @@ const createVehicle = async () => {
       attachedTo,
       vehicleLocation,
       year,
-      rimSize,
+      status,
     });
     dispatch({
       type: CREATE_VEHICLE_SUCCESS,

@@ -120,7 +120,7 @@ const reducer = (state, action) => {
       attachedTo: "",
       vehicleLocation: state.userLocation,
       year: "2003",
-      rimSize: "700R16",
+      status: "pending",
     };
     return { ...state, ...initialState };
   }
