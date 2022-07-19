@@ -17,8 +17,8 @@ const AddVehicle = () => {
     vehicleLocation,
     year,
     yearOptions,
-    rimSize,
-    rimSizeOptions,
+    status,
+    statusOptions,
     handleChange,
     clearValues,
     createVehicle,
@@ -111,13 +111,12 @@ const AddVehicle = () => {
             handleChange={handleVehicleInput}
             list={yearOptions}
           />
-          {/* vehicle rim size */}
+          {/* vehicle status */}
           <FormRowSelect
-            name="rimSize"
-            labelText="rim size"
-            value={rimSize}
+            name="status"
+            value={status}
             handleChange={handleVehicleInput}
-            list={rimSizeOptions}
+            list={statusOptions}
           />
           {/*btn container*/}
           <div className="btn-container">

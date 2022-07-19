@@ -3289,8 +3289,8 @@ const AddVehicle = () => {
     vehicleLocation,
     year,
     yearOptions,
-    rimSize,
-    rimSizeOptions,
+    status,
+    statusOptions,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -3372,7 +3372,7 @@ const AddVehicle = () => {
 
           {/* vehicle year */}
 
-          {/* vehicle rim size */}
+          {/* vehicle status */}
 
           <div className="btn-container">
             <button
@@ -3468,13 +3468,12 @@ return (
       list={yearOptions}
     />
 
-    {/* vehicle rim size */}
+    {/* vehicle status */}
     <FormRowSelect
-      name="rimSize"
-      labelText="rim size"
-      value={rimSize}
+      name="status"
+      value={status}
       handleChange={handleVehicleInput}
-      list={rimSizeOptions}
+      list={statusOptions}
     />
   </>
 );
@@ -3553,7 +3552,7 @@ if (action.type === CLEAR_VALUES) {
     attachedTo: "",
     vehicleLocation: state.userLocation,
     year: "2003",
-    rimSize: "700R16",
+    status: "pending",
   };
   return { ...state, ...initialState };
 }
