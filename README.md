@@ -3159,21 +3159,26 @@ const VehicleSchema = new mongoose.Schema(
       ],
       default: "Year of manufacture",
     },
-    rimSize: {
+    status: {
       type: String,
-      enum: [
-        "195-R15C",
-        "205/70/R15",
-        "205-R16C",
-        "215/55/R17",
-        "265/65/R17",
-        "235/45/R18",
-        "265/60/R18",
-        "285/50/R20",
-        "700R16",
-      ],
-      default: "Rim size",
+      enum: ["allocated", "auctioned", "pending"],
+      default: "pending",
     },
+    // rimSize: {
+    //   type: String,
+    //   enum: [
+    //     "195-R15C",
+    //     "205/70/R15",
+    //     "205-R16C",
+    //     "215/55/R17",
+    //     "265/65/R17",
+    //     "235/45/R18",
+    //     "265/60/R18",
+    //     "285/50/R20",
+    //     "700R16",
+    //   ],
+    //   default: "Rim size",
+    // },
     vehicleLocation: {
       type: String,
       default: "My city",
@@ -3191,7 +3196,7 @@ const VehicleSchema = new mongoose.Schema(
 export default mongoose.model("Vehicle", VehicleSchema);
 ```
 
-#### Create Job
+#### Create Vehicle
 
 ```js
 vehiclesController.js;
@@ -3221,22 +3226,9 @@ const createVehicle = async (req, res) => {
 };
 ```
 
-#### Job State Values
+#### Vehicle State Values
 
 ```js
-appContext.js;
-const initialState = {
-  isEditing: false,
-  editJobId: "",
-  position: "",
-  company: "",
-  // jobLocation
-  jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
-  jobType: "full-time",
-  statusOptions: ["pending", "interview", "declined"],
-  status: "pending",
-};
-
 appContext.js;
 const initialState = {
   isEditing: false,
@@ -3247,6 +3239,8 @@ const initialState = {
   insuranceDate: "",
   attachedTo: "",
   vehicleLocation: userLocation || "",
+  statusOptions: ["allocated", "auctioned", "pending"],
+  status: "pending",
   yearOptions: [
     "2003",
     "2004",
@@ -3272,18 +3266,6 @@ const initialState = {
     "2024",
   ],
   year: "2003",
-  rimSizeOptions: [
-    "195-R15C",
-    "205/70/R15",
-    "205-R16C",
-    "215/55/R17",
-    "265/65/R17",
-    "235/45/R18",
-    "265/60/R18",
-    "285/50/R20",
-    "700R16",
-  ],
-  rimSize: "700R16",
 };
 ```
 

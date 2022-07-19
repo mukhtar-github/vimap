@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.article`
   background: var(--white);
@@ -45,11 +45,11 @@ const Wrapper = styled.article`
     background: #fcefc7;
     color: #e9b949;
   }
-  .interview {
+  .allocated {
     background: #e0e8f9;
     color: #647acb;
   }
-  .declined {
+  .auctioned {
     color: #d66a6a;
     background: #ffeeee;
   }
@@ -100,6 +100,6 @@ const Wrapper = styled.article`
   &:hover .actions {
     visibility: visible;
   }
-`
+`;
 
-export default Wrapper
+export default Wrapper;

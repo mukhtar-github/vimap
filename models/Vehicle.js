@@ -27,6 +27,11 @@ const VehicleSchema = new mongoose.Schema(
       required: [true, "Please provide the vehicle user"],
       maxlength: 100,
     },
+    status: {
+      type: String,
+      enum: ["allocated", "auctioned", "pending"],
+      default: "pending",
+    },
     year: {
       type: String,
       enum: [
@@ -54,21 +59,6 @@ const VehicleSchema = new mongoose.Schema(
         "2024",
       ],
       default: "2003",
-    },
-    rimSize: {
-      type: String,
-      enum: [
-        "195-R15C",
-        "205/70/R15",
-        "205-R16C",
-        "215/55/R17",
-        "265/65/R17",
-        "235/45/R18",
-        "265/60/R18",
-        "285/50/R20",
-        "700R16",
-      ],
-      default: "700R16",
     },
     vehicleLocation: {
       type: String,
