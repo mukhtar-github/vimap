@@ -31,6 +31,27 @@ const Vehicle = ({
           <p>{make}</p>
         </div>
       </header>
+      <div className="content">
+        {/* content center later */}
+        <footer>
+          <div className="actions">
+            <Link
+              to="/add-vehicle"
+              onClick={() => setEditVehicle(_id)}
+              className="btn edit-btn"
+            >
+              Edit
+            </Link>
+            <button
+              type="button"
+              className="btn delete-btn"
+              onClick={() => deleteVehicle(_id)}
+            >
+              Delete
+            </button>
+          </div>
+        </footer>
+      </div>
     </Wrapper>
   );
 };

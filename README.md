@@ -3949,8 +3949,8 @@ const Vehicle = ({
         <footer>
           <div className="actions">
             <Link
-              to="/add-job"
-              onClick={() => setEditJob(_id)}
+              to="/add-vehicle"
+              onClick={() => setEditVehicle(_id)}
               className="btn edit-btn"
             >
               Edit
@@ -3958,7 +3958,7 @@ const Vehicle = ({
             <button
               type="button"
               className="btn delete-btn"
-              onClick={() => deleteJob(_id)}
+              onClick={() => deleteVehicle(_id)}
             >
               Delete
             </button>
