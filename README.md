@@ -3969,17 +3969,17 @@ const Vehicle = ({
   );
 };
 
-export default Job;
+export default Vehicle;
 ```
 
-#### JobInfo
+#### VehicleInfo
 
 ```js
-JobInfo.js;
+VehicleInfo.js;
 
-import Wrapper from "../assets/wrappers/JobInfo";
+import Wrapper from "../assets/wrappers/VehicleInfo";
 
-const JobInfo = ({ icon, text }) => {
+const VehicleInfo = ({ icon, text }) => {
   return (
     <Wrapper>
       <span className="icon">{icon}</span>
@@ -3988,7 +3988,7 @@ const JobInfo = ({ icon, text }) => {
   );
 };
 
-export default JobInfo;
+export default VehicleInfo;
 ```
 
 ```js
