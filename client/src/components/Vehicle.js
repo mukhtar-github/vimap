@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
+import { FaLocationArrow, FaCar, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
 import Wrapper from "../assets/wrappers/Vehicle";
@@ -32,7 +32,12 @@ const Vehicle = ({
         </div>
       </header>
       <div className="content">
-        {/* content center later */}
+        <div className="content-center">
+          <VehicleInfo icon={<FaLocationArrow />} text={vehicleLocation} />
+          <VehicleInfo icon={<FaCalendarAlt />} text={date} />
+          <VehicleInfo icon={<FaCar />} text={attachedTo} />
+          <div className={`status ${status}`}>{status}</div>
+        </div>
         <footer>
           <div className="actions">
             <Link

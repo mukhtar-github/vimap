@@ -3912,7 +3912,7 @@ value={{setEditVehicle,deleteVehicle}}
 ```js
 Vehicle.js;
 
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
+import { FaLocationArrow, FaCar, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
 import Wrapper from "../assets/wrappers/Vehicle";
@@ -3992,13 +3992,13 @@ export default VehicleInfo;
 ```
 
 ```js
-Job.js;
+Vehicle.js;
 return (
   <div className="content">
     <div className="content-center">
-      <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
-      <JobInfo icon={<FaCalendarAlt />} text={date} />
-      <JobInfo icon={<FaBriefcase />} text={jobType} />
+      <VehicleInfo icon={<FaLocationArrow />} text={vehicleLocation} />
+      <VehicleInfo icon={<FaCalendarAlt />} text={date} />
+      <VehicleInfo icon={<FaCar />} text={attachedTo} />
       <div className={`status ${status}`}>{status}</div>
     </div>
     {/* footer content */}
