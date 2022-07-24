@@ -3920,14 +3920,17 @@ import VehicleInfo from "./VehicleInfo";
 
 const Vehicle = ({
   _id,
-  position,
-  company,
-  jobLocation,
-  jobType,
+  make,
+  registration,
+  chassisNumber,
+  insuranceDate,
+  attachedTo,
+  vehicleLocation,
+  year,
   createdAt,
   status,
 }) => {
-  const { setEditJob, deleteJob } = useAppContext();
+  const { setEditVehicle, deleteVehicle } = useAppContext();
 
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");

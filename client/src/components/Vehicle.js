@@ -6,7 +6,18 @@ import { useAppContext } from "../context/appContext";
 import Wrapper from "../assets/wrappers/Vehicle";
 import VehicleInfo from "./VehicleInfo";
 
-const Vehicle = ({ make, createdAt }) => {
+const Vehicle = ({
+  _id,
+  make,
+  registration,
+  chassisNumber,
+  insuranceDate,
+  attachedTo,
+  vehicleLocation,
+  year,
+  createdAt,
+  status,
+}) => {
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
   return (
