@@ -3938,10 +3938,10 @@ const Vehicle = ({
   return (
     <Wrapper>
       <header>
-        <div className="main-icon">{company.charAt(0)}</div>
+        <div className="main-icon">{make.charAt(0)}</div>
         <div className="info">
-          <h5>{position}</h5>
-          <p>{company}</p>
+          <h5>{year}</h5>
+          <p>{make}</p>
         </div>
       </header>
       <div className="content">

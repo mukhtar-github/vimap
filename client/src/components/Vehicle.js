@@ -18,13 +18,20 @@ const Vehicle = ({
   createdAt,
   status,
 }) => {
+  const { setEditVehicle, deleteVehicle } = useAppContext();
+
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
   return (
-    <div>
-      <h5>{make}</h5>
-      <h5>{date}</h5>
-    </div>
+    <Wrapper>
+      <header>
+        <div className="main-icon">{make.charAt(0)}</div>
+        <div className="info">
+          <h5>{year}</h5>
+          <p>{make}</p>
+        </div>
+      </header>
+    </Wrapper>
   );
 };
 
