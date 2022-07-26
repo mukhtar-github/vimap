@@ -16,6 +16,7 @@ import {
   CREATE_VEHICLE_ERROR,
   GET_VEHICLES_BEGIN,
   GET_VEHICLES_SUCCESS,
+  SET_EDIT_VEHICLE,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -157,6 +158,36 @@ const reducer = (state, action) => {
       vehicles: action.payload.vehicles,
       totalVehicles: action.payload.totalVehicles,
       numOfPages: action.payload.numOfPages,
+    };
+  }
+
+  if (action.type === SET_EDIT_VEHICLE) {
+    const vehicle = state.vehicles.find(
+      (vehicle) => vehicle._id === action.payload.id
+    );
+    const {
+      _id,
+      make,
+      registration,
+      chassisNumber,
+      insuranceDate,
+      attachedTo,
+      vehicleLocation,
+      year,
+      status,
+    } = vehicle;
+    return {
+      ...state,
+      isEditing: true,
+      editVehicleId: _id,
+      make,
+      registration,
+      chassisNumber,
+      insuranceDate,
+      attachedTo,
+      vehicleLocation,
+      year,
+      status,
     };
   }
 

@@ -19,6 +19,7 @@ import {
   CREATE_VEHICLE_ERROR,
   GET_VEHICLES_BEGIN,
   GET_VEHICLES_SUCCESS,
+  SET_EDIT_VEHICLE,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -265,8 +266,14 @@ const AppProvider = ({ children }) => {
   };
 
   const setEditVehicle = (id) => {
+    dispatch({ type: SET_EDIT_VEHICLE, payload: { id } });
     console.log(`set edit vehicle : ${id}`);
   };
+
+  const editVehicle = () => {
+    console.log("edit vehicle");
+  };
+
   const deleteVehicle = (id) => {
     console.log(`delete vehicle : ${id}`);
   };
@@ -286,6 +293,7 @@ const AppProvider = ({ children }) => {
         getVehicles,
         setEditVehicle,
         deleteVehicle,
+        editVehicle,
       }}
     >
       {children}

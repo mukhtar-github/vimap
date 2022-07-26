@@ -4008,39 +4008,54 @@ return (
 );
 ```
 
-#### SetEditJob
+#### SetEditVehicle
 
 ```js
 actions.js;
-export const SET_EDIT_JOB = "SET_EDIT_JOB";
+export const SET_EDIT_VEHICLE = "SET_EDIT_VEHICLE";
 ```
 
 ```js
 appContext.js
 
-const setEditJob = (id) => {
-  dispatch({ type: SET_EDIT_JOB, payload: { id } })
+const setEditVehicle = (id) => {
+  dispatch({ type: SET_EDIT_VEHICLE, payload: { id } })
 }
-const editJob = () => {
-  console.log('edit job')
+const editVehicle = () => {
+  console.log('edit vehicle')
 }
-value={{editJob}}
+value={{editVehicle}}
 ```
 
 ```js
 reducer.js;
 
-if (action.type === SET_EDIT_JOB) {
-  const job = state.jobs.find((job) => job._id === action.payload.id);
-  const { _id, position, company, jobLocation, jobType, status } = job;
+if (action.type === SET_EDIT_VEHICLE) {
+  const vehicle = state.vehicles.find(
+    (vehicle) => vehicle._id === action.payload.id
+  );
+  const {
+    _id,
+    make,
+    registration,
+    chassisNumber,
+    insuranceDate,
+    attachedTo,
+    vehicleLocation,
+    year,
+    status,
+  } = vehicle;
   return {
     ...state,
     isEditing: true,
-    editJobId: _id,
-    position,
-    company,
-    jobLocation,
-    jobType,
+    editVehicleId: _id,
+    make,
+    registration,
+    chassisNumber,
+    insuranceDate,
+    attachedTo,
+    vehicleLocation,
+    year,
     status,
   };
 }
