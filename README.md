@@ -4115,7 +4115,7 @@ const updateVehicle = async (req, res) => {
 
   // check permissions
 
-  const updateVehicle = await Vehicle.findOneAndUpdate(
+  const updatedVehicle = await Vehicle.findOneAndUpdate(
     { _id: vehicleId },
     req.body,
     {
