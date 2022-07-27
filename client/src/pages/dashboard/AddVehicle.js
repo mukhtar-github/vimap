@@ -22,6 +22,7 @@ const AddVehicle = () => {
     handleChange,
     clearValues,
     createVehicle,
+    editVehicle,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -39,7 +40,7 @@ const AddVehicle = () => {
       return;
     }
     if (isEditing) {
-      // eventually editVehicle()
+      editVehicle();
       return;
     }
     createVehicle();

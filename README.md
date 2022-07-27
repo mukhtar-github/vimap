@@ -4062,8 +4062,8 @@ if (action.type === SET_EDIT_VEHICLE) {
 ```
 
 ```js
-AddJob.js;
-const { isEditing, editJob } = useAppContext();
+AddVehicle.js;
+const { isEditing, editVehicle } = useAppContext();
 const handleSubmit = (e) => {
   e.preventDefault();
 
@@ -4072,10 +4072,10 @@ const handleSubmit = (e) => {
     return;
   }
   if (isEditing) {
-    editJob();
+    editVehicle();
     return;
   }
-  createJob();
+  createVehicle();
 };
 ```
 
