@@ -58,7 +58,7 @@ const updateVehicle = async (req, res) => {
 
   // check permissions
 
-  const updateVehicle = await Job.findOneAndUpdate(
+  const updateVehicle = await Vehicle.findOneAndUpdate(
     { _id: vehicleId },
     req.body,
     {
