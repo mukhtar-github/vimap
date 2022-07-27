@@ -4067,7 +4067,14 @@ const { isEditing, editVehicle } = useAppContext();
 const handleSubmit = (e) => {
   e.preventDefault();
 
-  if (!position || !company || !jobLocation) {
+  if (
+    !make ||
+    !registration ||
+    !chassisNumber ||
+    !insuranceDate ||
+    !attachedTo ||
+    !vehicleLocation
+  ) {
     displayAlert();
     return;
   }
