@@ -67,7 +67,7 @@ const updateVehicle = async (req, res) => {
     }
   );
 
-  res.status(StatusCodes.OK).json({ updateVehicle });
+  res.status(StatusCodes.OK).json({ updatedVehicle });
 };
 
 const showStats = async (req, res) => {
