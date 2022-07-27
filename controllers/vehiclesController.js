@@ -35,7 +35,39 @@ const getAllVehicles = async (req, res) => {
 };
 
 const updateVehicle = async (req, res) => {
-  return res.send("update vehicle");
+  const { id: vehicleId } = req.params;
+
+  const { make, registration, chassisNumber, insuranceDate, attachedTo } =
+    req.body;
+
+  if (
+    !make ||
+    !registration ||
+    !chassisNumber ||
+    !insuranceDate ||
+    !attachedTo
+  ) {
+    throw new BadRequestError("Please Provide All Values");
+  }
+
+  const vehicle = await Vehicle.findOne({ _id: vehicleId });
+
+  if (!vehicle) {
+    throw new NotFoundError(`No vehicle with id ${vehicleId}`);
+  }
+
+  // check permissions
+
+  const updateVehicle = await Job.findOneAndUpdate(
+    { _id: vehicleId },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+
+  res.status(StatusCodes.OK).json({ updateVehicle });
 };
 
 const showStats = async (req, res) => {

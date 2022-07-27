@@ -4086,34 +4086,45 @@ const handleSubmit = (e) => {
 };
 ```
 
-#### Edit Job - Server
+#### Edit Vehicle - Server
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const updateJob = async (req, res) => {
-  const { id: jobId } = req.params;
+const updateVehicle = async (req, res) => {
+  const { id: vehicleId } = req.params;
 
-  const { company, position } = req.body;
+  const { make, registration, chassisNumber, insuranceDate, attachedTo } =
+    req.body;
 
-  if (!company || !position) {
+  if (
+    !make ||
+    !registration ||
+    !chassisNumber ||
+    !insuranceDate ||
+    !attachedTo
+  ) {
     throw new BadRequestError("Please Provide All Values");
   }
 
-  const job = await Job.findOne({ _id: jobId });
+  const vehicle = await Vehicle.findOne({ _id: vehicleId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id ${jobId}`);
+  if (!vehicle) {
+    throw new NotFoundError(`No vehicle with id ${vehicleId}`);
   }
 
   // check permissions
 
-  const updatedJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const updateVehicle = await Job.findOneAndUpdate(
+    { _id: vehicleId },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
 
-  res.status(StatusCodes.OK).json({ updatedJob });
+  res.status(StatusCodes.OK).json({ updateVehicle });
 };
 ```
 

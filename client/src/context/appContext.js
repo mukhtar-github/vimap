@@ -267,7 +267,6 @@ const AppProvider = ({ children }) => {
 
   const setEditVehicle = (id) => {
     dispatch({ type: SET_EDIT_VEHICLE, payload: { id } });
-    console.log(`set edit vehicle : ${id}`);
   };
 
   const editVehicle = () => {
