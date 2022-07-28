@@ -24,9 +24,8 @@ const Landing = () => {
             provide a solution to replace the hard copies method of saving and
             updating vehicle information with a simple application to save,
             access, and update vehicle information. VIMAP is a fleet wallet. The
-            software's features are; but are not limited to the Collection and
-            Storage of Vehicles Information, Inventory, GPS tracking, and
-            Insurance updates.
+            software's features are the Collection and Storage of Vehicles
+            Information, Inventory, GPS tracking, Insurance updates, and more.
           </p>
           <Link to="/register" className="btn btn-hero">
             Login / Register
