@@ -57,6 +57,8 @@ const updateVehicle = async (req, res) => {
   }
 
   // check permissions
+  console.log(typeof req.user.userId);
+  console.log(typeof vehicle.createdBy);
 
   const updatedVehicle = await Vehicle.findOneAndUpdate(
     { _id: vehicleId },
