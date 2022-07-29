@@ -1,6 +1,7 @@
 import Vehicle from "../models/Vehicle.js";
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError, NotFoundError } from "../errors/index.js";
+import checkPermissions from "../utils/checkPermissions.js";
 
 const createVehicle = async (req, res) => {
   const { make, registration, chassisNumber, insuranceDate, attachedTo } =
@@ -59,6 +60,8 @@ const updateVehicle = async (req, res) => {
   // check permissions
   console.log(typeof req.user.userId);
   console.log(typeof vehicle.createdBy);
+
+  checkPermissions(req.user, vehicle.createdBy);
 
   const updatedVehicle = await Vehicle.findOneAndUpdate(
     { _id: vehicleId },
