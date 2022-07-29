@@ -4167,7 +4167,7 @@ const updateVehicle = async (req, res) => {
 
   // check permissions
 
-  // alternative approach
+  // alternative approach - if you will be depending on the hooks in the model, then you go with this approach
 
   vehicle.make = make;
   vehicle.registration = registration;
