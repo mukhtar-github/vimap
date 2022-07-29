@@ -17,15 +17,15 @@ const Landing = () => {
             vehicle <span>information</span> app
           </h1>
           <p>
-            As a Fleet Manager at the Organization where I work, the challenge
-            of going through archives to get vehicle information for updates was
-            time-consuming. As a result of that challenge, the idea of VIMAP, an
-            acronym for Vehicles Information Management Application, came up to
-            provide a solution to replace the hard copies method of saving and
-            updating vehicle information with a simple application to save,
-            access, and update vehicle information. VIMAP is a fleet wallet. The
+            While working as a Fleet Manager with my employer, there was this
+            challenge of going through archives to get vehicle information for
+            updates which was time-consuming. The challenge gave birth to the
+            idea of VIMAP, an acronym for Vehicles Information Management
+            Application. The software provides a solution to replace the hard
+            copies method of accessing, saving, and updating vehicle
+            information. VIMAP is a fleet wallet for organizations. The
             software's features are the Collection and Storage of Vehicles
-            Information, Inventory, GPS tracking, Insurance updates, and more.
+            Information, Inventory, Insurance updates, and more.
           </p>
           <Link to="/register" className="btn btn-hero">
             Login / Register
