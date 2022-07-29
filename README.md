@@ -4136,30 +4136,48 @@ const updateVehicle = async (req, res) => {
 - course Q&A
 
 ```js
-jobsController.js;
-const updateJob = async (req, res) => {
-  const { id: jobId } = req.params;
-  const { company, position, jobLocation } = req.body;
+vehicleController.js;
+const updateVehicle = async (req, res) => {
+  const { id: vehicleId } = req.params;
 
-  if (!position || !company) {
-    throw new BadRequestError("Please provide all values");
+  const {
+    make,
+    registration,
+    chassisNumber,
+    insuranceDate,
+    attachedTo,
+    vehicleLocation,
+  } = req.body;
+
+  if (
+    !make ||
+    !registration ||
+    !chassisNumber ||
+    !insuranceDate ||
+    !attachedTo
+  ) {
+    throw new BadRequestError("Please Provide All Values");
   }
-  const job = await Job.findOne({ _id: jobId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id :${jobId}`);
+  const vehicle = await Vehicle.findOne({ _id: vehicleId });
+
+  if (!vehicle) {
+    throw new NotFoundError(`No vehicle with id ${vehicleId}`);
   }
 
   // check permissions
 
   // alternative approach
 
-  job.position = position;
-  job.company = company;
-  job.jobLocation = jobLocation;
+  vehicle.make = make;
+  vehicle.registration = registration;
+  vehicle.chassisNumber = chassisNumber;
+  vehicle.insuranceDate = insuranceDate;
+  vehicle.attachedTo = attachedTo;
+  vehicle.vehicleLocation = vehicleLocation;
 
-  await job.save();
-  res.status(StatusCodes.OK).json({ job });
+  await vehicle.save();
+  res.status(StatusCodes.OK).json({ vehicle });
 };
 ```
 
