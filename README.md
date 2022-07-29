@@ -4213,20 +4213,24 @@ const updateVehicle = async (req, res) => {
   }
 
   // check permissions
-  // req.user.userId (string) === job.createdBy(object)
+  // req.user.userId (string) === vehicle.createdBy(object)
   // throw new UnAuthorizedError('Not authorized to access this route')
 
   // console.log(typeof req.user.userId)
-  // console.log(typeof job.createdBy)
+  // console.log(typeof vehicle.createdBy)
 
-  checkPermissions(req.user, job.createdBy);
+  checkPermissions(req.user, vehicle.createdBy);
 
-  const updatedJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const updatedVehicle = await Vehicle.findOneAndUpdate(
+    { _id: vehicleId },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
 
-  res.status(StatusCodes.OK).json({ updatedJob });
+  res.status(StatusCodes.OK).json({ updatedVehicle });
 };
 ```
 
