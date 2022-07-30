@@ -20,6 +20,7 @@ import {
   GET_VEHICLES_BEGIN,
   GET_VEHICLES_SUCCESS,
   SET_EDIT_VEHICLE,
+  DELETE_VEHICLE_BEGIN,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -273,8 +274,14 @@ const AppProvider = ({ children }) => {
     console.log("edit vehicle");
   };
 
-  const deleteVehicle = (id) => {
-    console.log(`delete vehicle : ${id}`);
+  const deleteVehicle = async (vehicleId) => {
+    dispatch({ type: DELETE_VEHICLE_BEGIN });
+    try {
+      await authFetch.delete(`/vehicles/${vehicleId}`);
+      getVehicles();
+    } catch (error) {
+      logoutUser();
+    }
   };
 
   return (

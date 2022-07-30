@@ -4278,17 +4278,17 @@ const deleteVehicle = async (req, res) => {
 ```js
 actions.js;
 
-export const DELETE_JOB_BEGIN = "DELETE_JOB_BEGIN";
+export const DELETE_VEHICLE_BEGIN = "DELETE_VEHICLE_BEGIN";
 ```
 
 ```js
 appContext.js;
 
-const deleteJob = async (jobId) => {
-  dispatch({ type: DELETE_JOB_BEGIN });
+const deleteVehicle = async (vehicleId) => {
+  dispatch({ type: DELETE_VEHICLE_BEGIN });
   try {
-    await authFetch.delete(`/jobs/${jobId}`);
-    getJobs();
+    await authFetch.delete(`/vehicles/${vehicleId}`);
+    getVehicles();
   } catch (error) {
     logoutUser();
   }
@@ -4298,24 +4298,24 @@ const deleteJob = async (jobId) => {
 ```js
 reducer.js;
 
-if (action.type === DELETE_JOB_BEGIN) {
+if (action.type === DELETE_VEHICLE_BEGIN) {
   return { ...state, isLoading: true };
 }
 ```
 
-#### Edit Job - Front-End
+#### Edit Vehicle - Front-End
 
 ```js
 actions.js;
-export const EDIT_JOB_BEGIN = "EDIT_JOB_BEGIN";
-export const EDIT_JOB_SUCCESS = "EDIT_JOB_SUCCESS";
-export const EDIT_JOB_ERROR = "EDIT_JOB_ERROR";
+export const EDIT_VEHICLE_BEGIN = "EDIT_VEHICLE_BEGIN";
+export const EDIT_VEHICLE_SUCCESS = "EDIT_VEHICLE_SUCCESS";
+export const EDIT_VEHICLE_ERROR = "EDIT_VEHICLE_ERROR";
 ```
 
 ```js
 appContext.js;
-const editJob = async () => {
-  dispatch({ type: EDIT_JOB_BEGIN });
+const editVehicle = async () => {
+  dispatch({ type: EDIT_VEHICLE_BEGIN });
   try {
     const { position, company, jobLocation, jobType, status } = state;
 

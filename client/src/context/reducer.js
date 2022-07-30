@@ -17,6 +17,7 @@ import {
   GET_VEHICLES_BEGIN,
   GET_VEHICLES_SUCCESS,
   SET_EDIT_VEHICLE,
+  DELETE_VEHICLE_BEGIN,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -189,6 +190,10 @@ const reducer = (state, action) => {
       year,
       status,
     };
+  }
+
+  if (action.type === DELETE_VEHICLE_BEGIN) {
+    return { ...state, isLoading: true };
   }
 
   throw new Error(`no such action :${action.type}`);
