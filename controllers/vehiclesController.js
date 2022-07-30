@@ -75,7 +75,7 @@ const deleteVehicle = async (req, res) => {
   const vehicle = await Vehicle.findOne({ _id: vehicleId });
 
   if (!vehicle) {
-    throw new CustomError.NotFoundError(`No vehicle with id : ${vehicleId}`);
+    throw new NotFoundError(`No vehicle with id : ${vehicleId}`);
   }
 
   checkPermissions(req.user, vehicle.createdBy);
