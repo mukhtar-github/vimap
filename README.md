@@ -4246,36 +4246,34 @@ import { UnAuthenticatedError } from "../errors/index.js";
 const checkPermissions = (requestUser, resourceUserId) => {
   // if (requestUser.role === 'admin') return
   if (requestUser.userId === resourceUserId.toString()) return;
-  throw new UnAuthenticatedError(
-    "Not authorized to access this route"
-  );
+  throw new UnAuthenticatedError("Not authorized to access this route");
 };
 
 export default checkPermissions;
 ```
 
-#### Remove/Delete Job
+#### Remove/Delete Vehicle
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const deleteJob = async (req, res) => {
-  const { id: jobId } = req.params;
+const deleteVehicle = async (req, res) => {
+  const { id: vehicleId } = req.params;
 
-  const job = await Job.findOne({ _id: jobId });
+  const vehicle = await Vehicle.findOne({ _id: vehicleId });
 
-  if (!job) {
-    throw new CustomError.NotFoundError(`No job with id : ${jobId}`);
+  if (!vehicle) {
+    throw new CustomError.NotFoundError(`No vehicle with id : ${vehicleId}`);
   }
 
-  checkPermissions(req.user, job.createdBy);
+  checkPermissions(req.user, vehicle.createdBy);
 
-  await job.remove();
-  res.status(StatusCodes.OK).json({ msg: "Success! Job removed" });
+  await vehicle.remove();
+  res.status(StatusCodes.OK).json({ msg: "Success! Vehicle removed" });
 };
 ```
 
-#### Delete Job - Front-End
+#### Delete Vehicle - Front-End
 
 ```js
 actions.js;

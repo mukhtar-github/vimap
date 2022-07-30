@@ -23,10 +23,6 @@ const createVehicle = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ vehicle });
 };
 
-const deleteVehicle = async (req, res) => {
-  return res.send("delete vehicle");
-};
-
 const getAllVehicles = async (req, res) => {
   const vehicles = await Vehicle.find({ createdBy: req.user.userId });
 
@@ -58,8 +54,6 @@ const updateVehicle = async (req, res) => {
   }
 
   // check permissions
-  console.log(typeof req.user.userId);
-  console.log(typeof vehicle.createdBy);
 
   checkPermissions(req.user, vehicle.createdBy);
 
@@ -73,6 +67,21 @@ const updateVehicle = async (req, res) => {
   );
 
   res.status(StatusCodes.OK).json({ updatedVehicle });
+};
+
+const deleteVehicle = async (req, res) => {
+  const { id: vehicleId } = req.params;
+
+  const vehicle = await Vehicle.findOne({ _id: vehicleId });
+
+  if (!vehicle) {
+    throw new CustomError.NotFoundError(`No vehicle with id : ${vehicleId}`);
+  }
+
+  checkPermissions(req.user, vehicle.createdBy);
+
+  await vehicle.remove();
+  res.status(StatusCodes.OK).json({ msg: "Success! Vehicle removed" });
 };
 
 const showStats = async (req, res) => {
