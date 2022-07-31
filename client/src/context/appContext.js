@@ -50,6 +50,8 @@ const initialState = {
   statusOptions: ["allocated", "auctioned", "pending"],
   status: "pending",
   yearOptions: [
+    "2001",
+    "2002",
     "2003",
     "2004",
     "2005",
@@ -72,6 +74,7 @@ const initialState = {
     "2022",
     "2023",
     "2024",
+    "2025",
   ],
   year: "2003",
   vehicles: [],

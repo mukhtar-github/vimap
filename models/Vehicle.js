@@ -35,6 +35,8 @@ const VehicleSchema = new mongoose.Schema(
     year: {
       type: String,
       enum: [
+        "2001",
+        "2002",
         "2003",
         "2004",
         "2005",
@@ -57,6 +59,7 @@ const VehicleSchema = new mongoose.Schema(
         "2022",
         "2023",
         "2024",
+        "2025",
       ],
       default: "2003",
     },
