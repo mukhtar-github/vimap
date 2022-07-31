@@ -18,6 +18,9 @@ import {
   GET_VEHICLES_SUCCESS,
   SET_EDIT_VEHICLE,
   DELETE_VEHICLE_BEGIN,
+  EDIT_VEHICLE_BEGIN,
+  EDIT_VEHICLE_SUCCESS,
+  EDIT_VEHICLE_ERROR,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -194,6 +197,28 @@ const reducer = (state, action) => {
 
   if (action.type === DELETE_VEHICLE_BEGIN) {
     return { ...state, isLoading: true };
+  }
+
+  if (action.type === EDIT_VEHICLE_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === EDIT_VEHICLE_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Vehicle Updated!",
+    };
+  }
+  if (action.type === EDIT_VEHICLE_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
   }
 
   throw new Error(`no such action :${action.type}`);

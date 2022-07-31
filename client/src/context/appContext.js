@@ -21,6 +21,9 @@ import {
   GET_VEHICLES_SUCCESS,
   SET_EDIT_VEHICLE,
   DELETE_VEHICLE_BEGIN,
+  EDIT_VEHICLE_BEGIN,
+  EDIT_VEHICLE_SUCCESS,
+  EDIT_VEHICLE_ERROR,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -270,8 +273,40 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SET_EDIT_VEHICLE, payload: { id } });
   };
 
-  const editVehicle = () => {
-    console.log("edit vehicle");
+  const editVehicle = async () => {
+    dispatch({ type: EDIT_VEHICLE_BEGIN });
+    try {
+      const {
+        make,
+        registration,
+        chassisNumber,
+        insuranceDate,
+        attachedTo,
+        vehicleLocation,
+        year,
+        status,
+      } = state;
+
+      await authFetch.patch(`/vehicles/${state.editVehicleId}`, {
+        make,
+        registration,
+        chassisNumber,
+        insuranceDate,
+        attachedTo,
+        vehicleLocation,
+        year,
+        status,
+      });
+      dispatch({ type: EDIT_VEHICLE_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+        type: EDIT_VEHICLE_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
   };
 
   const deleteVehicle = async (vehicleId) => {

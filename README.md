@@ -4317,23 +4317,33 @@ appContext.js;
 const editVehicle = async () => {
   dispatch({ type: EDIT_VEHICLE_BEGIN });
   try {
-    const { position, company, jobLocation, jobType, status } = state;
+    const {
+      make,
+      registration,
+      chassisNumber,
+      insuranceDate,
+      attachedTo,
+      vehicleLocation,
+      year,
+      status,
+    } = state;
 
-    await authFetch.patch(`/jobs/${state.editJobId}`, {
-      company,
-      position,
-      jobLocation,
-      jobType,
+    await authFetch.patch(`/vehicles/${state.editVehicleId}`, {
+      make,
+      registration,
+      chassisNumber,
+      insuranceDate,
+      attachedTo,
+      vehicleLocation,
+      year,
       status,
     });
-    dispatch({
-      type: EDIT_JOB_SUCCESS,
-    });
+    dispatch({ type: EDIT_VEHICLE_SUCCESS });
     dispatch({ type: CLEAR_VALUES });
   } catch (error) {
     if (error.response.status === 401) return;
     dispatch({
-      type: EDIT_JOB_ERROR,
+      type: EDIT_VEHICLE_ERROR,
       payload: { msg: error.response.data.msg },
     });
   }
@@ -4344,19 +4354,19 @@ const editVehicle = async () => {
 ```js
 reducer.js;
 
-if (action.type === EDIT_JOB_BEGIN) {
+if (action.type === EDIT_VEHICLE_BEGIN) {
   return { ...state, isLoading: true };
 }
-if (action.type === EDIT_JOB_SUCCESS) {
+if (action.type === EDIT_VEHICLE_SUCCESS) {
   return {
     ...state,
     isLoading: false,
     showAlert: true,
     alertType: "success",
-    alertText: "Job Updated!",
+    alertText: "Vehicle Updated!",
   };
 }
-if (action.type === EDIT_JOB_ERROR) {
+if (action.type === EDIT_VEHICLE_ERROR) {
   return {
     ...state,
     isLoading: false,
