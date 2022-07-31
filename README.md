@@ -4290,6 +4290,7 @@ const deleteVehicle = async (vehicleId) => {
     await authFetch.delete(`/vehicles/${vehicleId}`);
     getVehicles();
   } catch (error) {
+    console.log(error.response)
     logoutUser();
   }
 };
