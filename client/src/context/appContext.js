@@ -315,7 +315,8 @@ const AppProvider = ({ children }) => {
       await authFetch.delete(`/vehicles/${vehicleId}`);
       getVehicles();
     } catch (error) {
-      logoutUser();
+      console.log(error.response);
+      //logoutUser();
     }
   };
 
