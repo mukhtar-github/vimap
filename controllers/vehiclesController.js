@@ -2,6 +2,7 @@ import Vehicle from "../models/Vehicle.js";
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError, NotFoundError } from "../errors/index.js";
 import checkPermissions from "../utils/checkPermissions.js";
+import mongoose from "mongoose";
 
 const createVehicle = async (req, res) => {
   const { make, registration, chassisNumber, insuranceDate, attachedTo } =
@@ -85,7 +86,12 @@ const deleteVehicle = async (req, res) => {
 };
 
 const showStats = async (req, res) => {
-  return res.send("show stats");
+  let stats = await Vehicle.aggregate([
+    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+    { $group: { _id: "$status", count: { $sum: 1 } } },
+  ]);
+
+  res.status(StatusCodes.OK).json({ stats });
 };
 
 export {

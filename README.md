@@ -4425,12 +4425,12 @@ start();
 - [Aggregation Pipeline](https://docs.mongodb.com/manual/core/aggregation-pipeline/)
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
 import mongoose from "mongoose";
 
 const showStats = async (req, res) => {
-  let stats = await Job.aggregate([
+  let stats = await Vehicle.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
     { $group: { _id: "$status", count: { $sum: 1 } } },
   ]);
