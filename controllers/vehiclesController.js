@@ -88,7 +88,7 @@ const deleteVehicle = async (req, res) => {
 const showStats = async (req, res) => {
   let stats = await Vehicle.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: "$status", count: { $sum: 1 } } },
+    // { $group: { _id: "$status", count: { $sum: 1 } } },
   ]);
 
   res.status(StatusCodes.OK).json({ stats });
