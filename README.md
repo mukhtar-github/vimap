@@ -4290,7 +4290,7 @@ const deleteVehicle = async (vehicleId) => {
     await authFetch.delete(`/vehicles/${vehicleId}`);
     getVehicles();
   } catch (error) {
-    console.log(error.response)
+    console.log(error.response);
     logoutUser();
   }
 };
@@ -4396,17 +4396,17 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import connectDB from "./db/connect.js";
-import Job from "./models/Job.js";
+import Vehicle from "./models/Vehicle.js";
 
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
-    await Job.deleteMany();
+    await Vehicle.deleteMany();
 
     const jsonProducts = JSON.parse(
       await readFile(new URL("./mock-data.json", import.meta.url))
     );
-    await Job.create(jsonProducts);
+    await Vehicle.create(jsonProducts);
     console.log("Success!!!!");
     process.exit(0);
   } catch (error) {
