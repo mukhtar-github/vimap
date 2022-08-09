@@ -4487,7 +4487,7 @@ const showStats = async (req, res) => {
 
   let monthlyUpdates = [];
 
-  res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
+  res.status(StatusCodes.OK).json({ defaultStats, monthlyUpdates });
 };
 ```
 

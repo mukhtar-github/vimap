@@ -105,7 +105,7 @@ const showStats = async (req, res) => {
 
   let monthlyUpdates = [];
 
-  res.status(StatusCodes.OK).json({ stats });
+  res.status(StatusCodes.OK).json({ defaultStats, monthlyUpdates });
 };
 
 export {
