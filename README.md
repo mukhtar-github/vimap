@@ -4445,10 +4445,10 @@ const showStats = async (req, res) => {
 - [Reduce Object Example ](https://youtu.be/5BFkp8JjLEY)
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
 const showStats = async (req, res) => {
-  let stats = await Job.aggregate([
+  let stats = await Vehicle.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
     { $group: { _id: "$status", count: { $sum: 1 } } },
   ]);
