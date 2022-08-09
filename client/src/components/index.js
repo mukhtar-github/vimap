@@ -7,6 +7,8 @@ import Navbar from "./Navbar";
 import FormRowSelect from "./FormRowSelect";
 import SearchContainer from "./SearchContainer";
 import VehiclesContainer from "./VehiclesContainer";
+import StatsContainer from "./StatsContainer";
+import ChartsContainer from "./ChartsContainer";
 
 export {
   Logo,
@@ -18,4 +20,6 @@ export {
   Navbar,
   SearchContainer,
   VehiclesContainer,
+  StatsContainer,
+  ChartsContainer,
 };
