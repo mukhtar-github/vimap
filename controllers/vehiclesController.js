@@ -97,6 +97,14 @@ const showStats = async (req, res) => {
     return acc;
   }, {});
 
+  const defaultStats = {
+    pending: stats.pending || 0,
+    allocated: stats.allocated || 0,
+    auctioned: stats.auctioned || 0,
+  };
+
+  let monthlyUpdates = [];
+
   res.status(StatusCodes.OK).json({ stats });
 };
 

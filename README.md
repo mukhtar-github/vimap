@@ -4466,7 +4466,7 @@ const showStats = async (req, res) => {
 #### Show Stats - Default Stats
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
 const showStats = async (req, res) => {
   let stats = await Job.aggregate([
@@ -4481,10 +4481,12 @@ const showStats = async (req, res) => {
 
   const defaultStats = {
     pending: stats.pending || 0,
-    interview: stats.interview || 0,
-    declined: stats.declined || 0,
+    allocated: stats.allocated || 0,
+    auctioned: stats.auctioned || 0,
   };
-  let monthlyApplications = [];
+
+  let monthlyUpdates = [];
+
   res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
 };
 ```
