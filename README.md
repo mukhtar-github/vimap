@@ -4505,19 +4505,19 @@ appContext.js
 
 const initialState = {
   stats: {},
-  monthlyApplications: []
+  monthlyUpdates: []
 
 }
 
 const showStats = async () => {
     dispatch({ type: SHOW_STATS_BEGIN })
     try {
-      const { data } = await authFetch('/jobs/stats')
+      const { data } = await authFetch('/vehicles/stats')
       dispatch({
         type: SHOW_STATS_SUCCESS,
         payload: {
           stats: data.defaultStats,
-          monthlyApplications: data.monthlyApplications,
+          monthlyUpdates: data.monthlyUpdates,
         },
       })
     } catch (error) {
@@ -4540,7 +4540,7 @@ if (action.type === SHOW_STATS_SUCCESS) {
     ...state,
     isLoading: false,
     stats: action.payload.stats,
-    monthlyApplications: action.payload.monthlyApplications,
+    monthlyUpdates: action.payload.monthlyUpdates,
   };
 }
 ```
@@ -4562,7 +4562,7 @@ import { useAppContext } from "../../context/appContext";
 import { StatsContainer, Loading, ChartsContainer } from "../../components";
 
 const Stats = () => {
-  const { showStats, isLoading, monthlyApplications } = useAppContext();
+  const { showStats, isLoading, monthlyUpdates } = useAppContext();
   useEffect(() => {
     showStats();
   }, []);
@@ -4574,7 +4574,7 @@ const Stats = () => {
   return (
     <>
       <StatsContainer />
-      {monthlyApplications.length > 0 && <ChartsContainer />}
+      {monthlyUpdates.length > 0 && <ChartsContainer />}
     </>
   );
 };

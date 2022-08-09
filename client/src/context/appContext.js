@@ -24,6 +24,8 @@ import {
   EDIT_VEHICLE_BEGIN,
   EDIT_VEHICLE_SUCCESS,
   EDIT_VEHICLE_ERROR,
+  SHOW_STATS_BEGIN,
+  SHOW_STATS_SUCCESS,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -81,6 +83,8 @@ const initialState = {
   totalVehicles: 0,
   numOfPages: 1,
   page: 1,
+  stats: {},
+  monthlyUpdates: [],
 };
 
 const AppContext = React.createContext();
@@ -323,6 +327,25 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const showStats = async () => {
+    dispatch({ type: SHOW_STATS_BEGIN });
+    try {
+      const { data } = await authFetch("/vehicles/stats");
+      dispatch({
+        type: SHOW_STATS_SUCCESS,
+        payload: {
+          stats: data.defaultStats,
+          monthlyUpdates: data.monthlyUpdates,
+        },
+      });
+    } catch (error) {
+      console.log(error.response);
+      // logoutUser()
+    }
+
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -339,6 +362,7 @@ const AppProvider = ({ children }) => {
         setEditVehicle,
         deleteVehicle,
         editVehicle,
+        showStats,
       }}
     >
       {children}
