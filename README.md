@@ -4651,12 +4651,12 @@ function StatsItem({ count, title, icon, color, bcg }) {
 export default StatsItem;
 ```
 
-#### Aggregate Jobs Based on Year and Month
+#### Aggregate Vehicles Based on Year and Month
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-let monthlyApplications = await Job.aggregate([
+let monthlyUpdates = await Vehicle.aggregate([
   { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
   {
     $group: {
