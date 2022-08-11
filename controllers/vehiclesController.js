@@ -119,23 +119,24 @@ const showStats = async (req, res) => {
         count: { $sum: 1 },
       },
     },
-    { $sort: { "_id.year": -1, "_id.month": -1 } },
+    { $sort: { "_id.year": -1, "_id.month": -1 } }, // sorted to retrieve the latest six months
     { $limit: 6 },
   ]);
 
-  monthlyUpdates = monthlyUpdates.map((item) => {
-    const {
-      _id: { year, month },
-      count,
-    } = item;
-    // moment accepts 0-11 in month's count; whereas in mongoBD it's 1-12
-    const date = moment()
-      .month(month - 1)
-      .year(year)
-      .format("MMM Y");
-    return { date, count };
-  });
-  //.reverse();
+  monthlyUpdates = monthlyUpdates
+    .map((item) => {
+      const {
+        _id: { year, month },
+        count,
+      } = item;
+      // moment accepts 0-11 in month's count; whereas in mongoBD it's 1-12
+      const date = moment()
+        .month(month - 1)
+        .year(year)
+        .format("MMM Y");
+      return { date, count };
+    })
+    .reverse(); // so that the charts should display the data from the oldest to the newest;
 
   res.status(StatusCodes.OK).json({ defaultStats, monthlyUpdates });
 };

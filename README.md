@@ -4671,7 +4671,7 @@ let monthlyUpdates = await Vehicle.aggregate([
       count: { $sum: 1 },
     },
   },
-  { $sort: { "_id.year": -1, "_id.month": -1 } },
+  { $sort: { "_id.year": -1, "_id.month": -1 } }, // sorted to retrieve the latest six months
   { $limit: 6 },
 ]);
 ```
@@ -4696,7 +4696,7 @@ monthlyUpdates = monthlyUpdates
       _id: { year, month },
       count,
     } = item;
-    // accepts 0-11
+    // moment accepts 0-11 in month's count; whereas in mongoBD it's 1-12
     const date = moment()
       .month(month - 1)
       .year(year)
