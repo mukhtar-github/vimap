@@ -4722,11 +4722,11 @@ import Wrapper from "../assets/wrappers/ChartsContainer";
 
 export default function ChartsContainer() {
   const [barChart, setBarChart] = useState(true);
-  const { monthlyApplications: data } = useAppContext();
+  const { monthlyUpdates: data } = useAppContext();
 
   return (
     <Wrapper>
-      <h4>Monthly Applications</h4>
+      <h4>Monthly Updates</h4>
 
       <button type="button" onClick={() => setBarChart(!barChart)}>
         {barChart ? "AreaChart" : "BarChart"}
