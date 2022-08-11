@@ -3,6 +3,7 @@ import { StatusCodes } from "http-status-codes";
 import { BadRequestError, NotFoundError } from "../errors/index.js";
 import checkPermissions from "../utils/checkPermissions.js";
 import mongoose from "mongoose";
+import moment from "moment";
 
 const createVehicle = async (req, res) => {
   const { make, registration, chassisNumber, insuranceDate, attachedTo } =
@@ -121,6 +122,20 @@ const showStats = async (req, res) => {
     { $sort: { "_id.year": -1, "_id.month": -1 } },
     { $limit: 6 },
   ]);
+
+  monthlyUpdates = monthlyUpdates.map((item) => {
+    const {
+      _id: { year, month },
+      count,
+    } = item;
+    // moment accepts 0-11 in month's count; whereas in mongoBD it's 1-12
+    const date = moment()
+      .month(month - 1)
+      .year(year)
+      .format("MMM Y");
+    return { date, count };
+  });
+  //.reverse();
 
   res.status(StatusCodes.OK).json({ defaultStats, monthlyUpdates });
 };

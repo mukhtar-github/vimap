@@ -4686,11 +4686,11 @@ npm install moment
 ```
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
 import moment from "moment";
 
-monthlyApplications = monthlyApplications
+monthlyUpdates = monthlyUpdates
   .map((item) => {
     const {
       _id: { year, month },
