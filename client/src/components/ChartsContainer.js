@@ -1,4 +1,3 @@
-import React from "react";
 import React, { useState } from "react";
 import BarChart from "./BarChart";
 import AreaChart from "./AreaChart";
