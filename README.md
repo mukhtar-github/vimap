@@ -4744,7 +4744,6 @@ export default function ChartsContainer() {
 [Recharts](https://recharts.org)
 
 ```sh
-cd client
 npm install recharts
 ```
 
