@@ -37,9 +37,11 @@ const getAllVehicles = async (req, res) => {
   if (status !== "all") {
     queryObject.status = status;
   }
-
   if (year !== "all") {
     queryObject.year = year;
+  }
+  if (search) {
+    queryObject.make = { $regex: search, $options: "i" };
   }
 
   // NO AWAIT

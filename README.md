@@ -4923,7 +4923,7 @@ const getAllVehicles = async (req, res) => {
     queryObject.year = year;
   }
   if (search) {
-    queryObject.position = { $regex: search, $options: "i" };
+    queryObject.make = { $regex: search, $options: "i" };
   }
   // NO AWAIT
   let result = Vehicle.find(queryObject);
@@ -4936,10 +4936,10 @@ const getAllVehicles = async (req, res) => {
     result = result.sort("createdAt");
   }
   if (sort === "a-z") {
-    result = result.sort("position");
+    result = result.sort("make");
   }
   if (sort === "z-a") {
-    result = result.sort("-position");
+    result = result.sort("-make");
   }
   const vehicles = await result;
 
