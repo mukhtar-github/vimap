@@ -4923,7 +4923,7 @@ const getAllVehicles = async (req, res) => {
     queryObject.year = year;
   }
   if (search) {
-    queryObject.make = { $regex: search, $options: "i" };
+    queryObject.make = { $regex: search, $options: "i" }; // case insensitive "i"
   }
   // NO AWAIT
   let result = Vehicle.find(queryObject);

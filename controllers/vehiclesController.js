@@ -48,6 +48,18 @@ const getAllVehicles = async (req, res) => {
   let result = Vehicle.find(queryObject);
 
   // chain sort conditions
+  if (sort === "latest") {
+    result = result.sort("-createdAt");
+  }
+  if (sort === "oldest") {
+    result = result.sort("createdAt");
+  }
+  if (sort === "a-z") {
+    result = result.sort("make");
+  }
+  if (sort === "z-a") {
+    result = result.sort("-make");
+  }
 
   const vehicles = await result;
 
