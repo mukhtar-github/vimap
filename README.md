@@ -5077,7 +5077,7 @@ const SearchContainer = () => {
     handleChange,
     searchStatus,
     statusOptions,
-    jobTypeOptions,
+    yearOptions,
     searchType,
     clearFilters,
     sort,
@@ -5106,19 +5106,19 @@ const SearchContainer = () => {
           ></FormRow>
           {/* search by status */}
           <FormRowSelect
-            labelText="job status"
+            labelText="vehicle status"
             name="searchStatus"
             value={searchStatus}
             handleChange={handleSearch}
             list={["all", ...statusOptions]}
           ></FormRowSelect>
-          {/* search by type */}
+          {/* search by year */}
           <FormRowSelect
-            labelText="job type"
+            labelText="vehicle year"
             name="searchType"
             value={searchType}
             handleChange={handleSearch}
-            list={["all", ...jobTypeOptions]}
+            list={["all", ...yearOptions]}
           ></FormRowSelect>
           {/* sort */}
           <FormRowSelect
@@ -5130,7 +5130,7 @@ const SearchContainer = () => {
           <button
             className="btn btn-block btn-danger"
             disabled={isLoading}
-            onClick={handleSubmit}
+            onClick={clearFilters}
           >
             clear filters
           </button>
