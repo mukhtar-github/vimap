@@ -36,7 +36,7 @@ const SearchContainer = () => {
           ></FormRow>
           {/* search by status */}
           <FormRowSelect
-            labelText="vehicle status"
+            labelText="status of vehicle"
             name="searchStatus"
             value={searchStatus}
             handleChange={handleSearch}
@@ -44,7 +44,7 @@ const SearchContainer = () => {
           ></FormRowSelect>
           {/* search by year */}
           <FormRowSelect
-            labelText="vehicle year"
+            labelText="year of manufacture"
             name="searchType"
             value={searchType}
             handleChange={handleSearch}
