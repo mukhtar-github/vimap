@@ -34,10 +34,10 @@ const getAllVehicles = async (req, res) => {
   };
 
   // add stuff based on condition
-  if (status !== "all") {
+  if (status && status !== "all") {
     queryObject.status = status;
   }
-  if (year !== "all") {
+  if (year && year !== "all") {
     queryObject.year = year;
   }
   if (search) {
@@ -45,6 +45,7 @@ const getAllVehicles = async (req, res) => {
   }
 
   // NO AWAIT
+  console.log(queryObject);
   let result = Vehicle.find(queryObject);
 
   // chain sort conditions
