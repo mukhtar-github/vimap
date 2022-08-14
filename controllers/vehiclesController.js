@@ -45,7 +45,6 @@ const getAllVehicles = async (req, res) => {
   }
 
   // NO AWAIT
-  console.log(queryObject);
   let result = Vehicle.find(queryObject);
 
   // chain sort conditions
