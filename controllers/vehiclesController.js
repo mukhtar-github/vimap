@@ -27,7 +27,7 @@ const createVehicle = async (req, res) => {
 
 const getAllVehicles = async (req, res) => {
   // const vehicles = await Vehicle.find({ createdBy: req.user.userId });
-  const { search, status, vehicleType, sort } = req.query;
+  const { search, status, year, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
