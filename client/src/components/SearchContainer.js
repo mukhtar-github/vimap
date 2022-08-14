@@ -22,6 +22,11 @@ const SearchContainer = () => {
     handleChange({ name: e.target.name, value: e.target.value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    clearFilters();
+  };
+
   return (
     <Wrapper>
       <form className="form">
@@ -36,7 +41,7 @@ const SearchContainer = () => {
           ></FormRow>
           {/* search by status */}
           <FormRowSelect
-            labelText="status of vehicle"
+            labelText="vehicle status"
             name="searchStatus"
             value={searchStatus}
             handleChange={handleSearch}
@@ -60,7 +65,7 @@ const SearchContainer = () => {
           <button
             className="btn btn-block btn-danger"
             disabled={isLoading}
-            onClick={clearFilters}
+            onClick={handleSubmit}
           >
             clear filters
           </button>
