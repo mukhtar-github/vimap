@@ -4928,7 +4928,7 @@ const getAllVehicles = async (req, res) => {
   // NO AWAIT
   let result = Vehicle.find(queryObject);
 
-  // chain sort conditions
+  // chain sort conditions - Mongoose Sort
   if (sort === "latest") {
     result = result.sort("-createdAt");
   }
