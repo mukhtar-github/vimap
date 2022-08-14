@@ -38,6 +38,10 @@ const getAllVehicles = async (req, res) => {
     queryObject.status = status;
   }
 
+  if (year !== "all") {
+    queryObject.year = year;
+  }
+
   // NO AWAIT
   let result = Vehicle.find(queryObject);
 

@@ -4823,7 +4823,7 @@ const AreaChartComponent = ({ data }) => {
 vehiclesController.js;
 
 const getAllVehicles = async (req, res) => {
-  const { search, status, vehicleType, sort } = req.query;
+  const { search, status, year, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -4850,7 +4850,7 @@ const getAllVehicles = async (req, res) => {
 vehiclesController.js;
 
 const getAllVehicles = async (req, res) => {
-  const { search, status, vehicleType, sort } = req.query;
+  const { search, status, year, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -4873,13 +4873,13 @@ const getAllVehicles = async (req, res) => {
 };
 ```
 
-#### VehicleType
+#### Year
 
 ```js
 vehiclesController.js;
 
 const getAllVehicles = async (req, res) => {
-  const { search, status, vehicleType, sort } = req.query;
+  const { search, status, year, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -4888,8 +4888,8 @@ const getAllVehicles = async (req, res) => {
   if (status !== "all") {
     queryObject.status = status;
   }
-  if (vehicleType !== "all") {
-    queryObject.vehicleType = vehicleType;
+  if (year !== "all") {
+    queryObject.year = year;
   }
   // NO AWAIT
   let result = Vehicle.find(queryObject);
@@ -4910,7 +4910,7 @@ const getAllVehicles = async (req, res) => {
 vehiclesController.js;
 
 const getAllVehicles = async (req, res) => {
-  const { search, status, vehicleType, sort } = req.query;
+  const { search, status, year, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -4919,8 +4919,8 @@ const getAllVehicles = async (req, res) => {
   if (status !== "all") {
     queryObject.status = status;
   }
-  if (vehicleType !== "all") {
-    queryObject.vehicleType = vehicleType;
+  if (year !== "all") {
+    queryObject.year = year;
   }
   if (search) {
     queryObject.position = { $regex: search, $options: "i" };
