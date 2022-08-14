@@ -33,7 +33,10 @@ const getAllVehicles = async (req, res) => {
     createdBy: req.user.userId,
   };
 
-  // add stuff base on condition
+  // add stuff based on condition
+  if (status !== "all") {
+    queryObject.status = status;
+  }
 
   // NO AWAIT
   let result = Vehicle.find(queryObject);
