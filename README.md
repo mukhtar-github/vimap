@@ -5019,6 +5019,7 @@ SearchContainer.js;
 import { FormRow, FormRowSelect } from ".";
 import { useAppContext } from "../context/appContext";
 import Wrapper from "../assets/wrappers/SearchContainer";
+
 const SearchContainer = () => {
   const {
     isLoading,
@@ -5028,7 +5029,7 @@ const SearchContainer = () => {
     sort,
     sortOptions,
     statusOptions,
-    jobTypeOptions,
+    yearOptions,
     handleChange,
     clearFilters,
   } = useAppContext();
