@@ -4817,38 +4817,40 @@ const AreaChartComponent = ({ data }) => {
 
 #### Filter
 
-#### Get All Jobs - Initial Setup
+#### Get All Vehicles - Initial Setup
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+const getAllVehicles = async (req, res) => {
+  const { search, status, vehicleType, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
   };
 
+  // add stuff base on condition
+
   // NO AWAIT
-  let result = Job.find(queryObject);
+  let result = Vehicle.find(queryObject);
 
   // chain sort conditions
 
-  const jobs = await result;
+  const vehicles = await result;
 
   res
     .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 ```
 
 #### Status
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+const getAllVehicles = async (req, res) => {
+  const { search, status, vehicleType, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -4859,25 +4861,25 @@ const getAllJobs = async (req, res) => {
   }
 
   // NO AWAIT
-  let result = Job.find(queryObject);
+  let result = Vehicle.find(queryObject);
 
   // chain sort conditions
 
-  const jobs = await result;
+  const vehicles = await result;
 
   res
     .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 ```
 
-#### JobType
+#### VehicleType
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+const getAllVehicles = async (req, res) => {
+  const { search, status, vehicleType, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -4886,29 +4888,29 @@ const getAllJobs = async (req, res) => {
   if (status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== "all") {
-    queryObject.jobType = jobType;
+  if (vehicleType !== "all") {
+    queryObject.vehicleType = vehicleType;
   }
   // NO AWAIT
-  let result = Job.find(queryObject);
+  let result = Vehicle.find(queryObject);
 
   // chain sort conditions
 
-  const jobs = await result;
+  const vehicles = await result;
 
   res
     .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 ```
 
 #### Search
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+const getAllVehicles = async (req, res) => {
+  const { search, status, vehicleType, sort } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -4917,14 +4919,14 @@ const getAllJobs = async (req, res) => {
   if (status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== "all") {
-    queryObject.jobType = jobType;
+  if (vehicleType !== "all") {
+    queryObject.vehicleType = vehicleType;
   }
   if (search) {
     queryObject.position = { $regex: search, $options: "i" };
   }
   // NO AWAIT
-  let result = Job.find(queryObject);
+  let result = Vehicle.find(queryObject);
 
   // chain sort conditions
   if (sort === "latest") {
@@ -4939,11 +4941,11 @@ const getAllJobs = async (req, res) => {
   if (sort === "z-a") {
     result = result.sort("-position");
   }
-  const jobs = await result;
+  const vehicles = await result;
 
   res
     .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 ```
 
