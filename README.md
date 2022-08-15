@@ -5173,33 +5173,34 @@ if (action.type === CLEAR_FILTERS) {
 }
 ```
 
-#### Refactor Get All Jobs
+#### Refactor Get All Vehicles
 
 ```js
-const getJobs = async () => {
-  // will add page later
-  const { search, searchStatus, searchType, sort } = state;
-  let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
-  if (search) {
-    url = url + `&search=${search}`;
-  }
-  dispatch({ type: GET_JOBS_BEGIN });
-  try {
-    const { data } = await authFetch(url);
-    const { jobs, totalJobs, numOfPages } = data;
-    dispatch({
-      type: GET_JOBS_SUCCESS,
-      payload: {
-        jobs,
-        totalJobs,
-        numOfPages,
-      },
-    });
-  } catch (error) {
-    // logoutUser()
-  }
-  clearAlert();
-};
+const getVehicles = async () => {
+    // will add page later
+    const { search, searchStatus, searchType, sort } = state;
+    let url = `/vehicles?status=${searchStatus}&year=${searchType}&sort=${sort}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
+    dispatch({ type: GET_VEHICLES_BEGIN });
+    try {
+      const { data } = await authFetch(url);
+      const { vehicles, totalVehicles, numOfPages } = data;
+      dispatch({
+        type: GET_VEHICLES_SUCCESS,
+        payload: {
+          vehicles,
+          totalVehicles,
+          numOfPages,
+        },
+      });
+    } catch (error) {
+      console.log(error.response);
+      // logoutUser();
+    }
+    clearAlert();
+  };
 ```
 
 ```js

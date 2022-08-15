@@ -261,8 +261,12 @@ const AppProvider = ({ children }) => {
   };
 
   const getVehicles = async () => {
-    let url = `/vehicles`;
-
+    // will add page later
+    const { search, searchStatus, searchType, sort } = state;
+    let url = `/vehicles?status=${searchStatus}&year=${searchType}&sort=${sort}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
     dispatch({ type: GET_VEHICLES_BEGIN });
     try {
       const { data } = await authFetch(url);
