@@ -69,9 +69,10 @@ const getAllVehicles = async (req, res) => {
   // 10 10 10 10 10 10 10 5
   const vehicles = await result;
 
-  res
-    .status(StatusCodes.OK)
-    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
+  const totalVehicles = await Vehicle.countDocuments(queryObject);
+  const numOfPages = Math.ceil(totalVehicles / limit);
+
+  res.status(StatusCodes.OK).json({ vehicles, totalVehicles, numOfPages });
 };
 
 const updateVehicle = async (req, res) => {
