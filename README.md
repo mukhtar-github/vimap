@@ -5265,15 +5265,12 @@ const getAllVehicles = async (req, res) => {
     result = result.sort("-make");
   }
 
-  const totalVehicles = await result;
-
   // setup pagination
   const limit = 10;
   const skip = 1;
 
   result = result.skip(skip).limit(limit);
-  // 23
-  // 4 7 7 7 2
+
   const vehicles = await result;
 
   res
@@ -5321,8 +5318,6 @@ const getAllVehicles = async (req, res) => {
   if (sort === "z-a") {
     result = result.sort("-make");
   }
-
-  const totalVehicles = await result;
 
   // setup pagination
   const page = Number(req.query.page) || 1;
