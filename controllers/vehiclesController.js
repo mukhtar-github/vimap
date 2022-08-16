@@ -61,6 +61,11 @@ const getAllVehicles = async (req, res) => {
     result = result.sort("-make");
   }
 
+  const limit = 0;
+  const skip = 1;
+
+  result = result.skip(skip);
+
   const vehicles = await result;
 
   res

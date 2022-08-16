@@ -5,11 +5,20 @@ import Vehicle from "./Vehicle";
 import Wrapper from "../assets/wrappers/VehiclesContainer";
 
 const VehiclesContainer = () => {
-  const { getVehicles, vehicles, isLoading, page, totalVehicles } =
-    useAppContext();
+  const {
+    getVehicles,
+    vehicles,
+    isLoading,
+    page,
+    totalVehicles,
+    search,
+    searchStatus,
+    searchType,
+    sort,
+  } = useAppContext();
   useEffect(() => {
     getVehicles();
-  }, []);
+  }, [search, searchStatus, searchType, sort]);
 
   if (isLoading) {
     return <Loading center />;

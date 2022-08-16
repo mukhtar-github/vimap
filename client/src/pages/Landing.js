@@ -25,7 +25,8 @@ const Landing = () => {
             copies method of accessing, saving, and updating vehicle
             information. VIMAP is a fleet wallet for organizations. The
             software's features are the Collection and Storage of Vehicles
-            Information, Inventory, Insurance updates, and more.
+            Information, Search, Updates, Graphical Data Visualization, and
+            more.
           </p>
           <Link to="/register" className="btn btn-hero">
             Login / Register
