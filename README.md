@@ -5395,7 +5395,7 @@ const getAllVehicles = async (req, res) => {
 - PageBtnContainer.js
 
 ```js
-JobsContainer.js;
+VehiclesContainer.js;
 
 import PageBtnContainer from "./PageBtnContainer";
 
@@ -5404,11 +5404,11 @@ const { numOfPages } = useAppContext();
 return (
   <Wrapper>
     <h5>
-      {totalJobs} job{jobs.length > 1 && "s"} found
+      {totalVehicles} vehicle{vehicles.length > 1 && "s"} found
     </h5>
-    <div className="jobs">
-      {jobs.map((job) => {
-        return <Job key={job._id} {...job} />;
+    <div className="vehicles">
+      {vehicles.map((vehicle) => {
+        return <Vehicle key={vehicle._id} {...vehicle} />;
       })}
     </div>
     {numOfPages > 1 && <PageBtnContainer />}

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import Loading from "./Loading";
 import Vehicle from "./Vehicle";
+import PageBtnContainer from "./PageBtnContainer";
 import Wrapper from "../assets/wrappers/VehiclesContainer";
 
 const VehiclesContainer = () => {
@@ -15,6 +16,7 @@ const VehiclesContainer = () => {
     searchStatus,
     searchType,
     sort,
+    numOfPages,
   } = useAppContext();
   useEffect(() => {
     getVehicles();
@@ -41,6 +43,7 @@ const VehiclesContainer = () => {
         })}
       </div>
       {/* pagination buttons */}
+      {numOfPages > 1 && <PageBtnContainer />}
     </Wrapper>
   );
 };
