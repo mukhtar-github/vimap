@@ -4910,6 +4910,7 @@ const getAllVehicles = async (req, res) => {
 vehiclesController.js;
 
 const getAllVehicles = async (req, res) => {
+  // const vehicles = await Vehicle.find({ createdBy: req.user.userId });
   const { search, status, year, sort } = req.query;
 
   const queryObject = {
@@ -5177,75 +5178,80 @@ if (action.type === CLEAR_FILTERS) {
 
 ```js
 const getVehicles = async () => {
-    // will add page later
-    const { search, searchStatus, searchType, sort } = state;
-    let url = `/vehicles?status=${searchStatus}&year=${searchType}&sort=${sort}`;
-    if (search) {
-      url = url + `&search=${search}`;
-    }
-    dispatch({ type: GET_VEHICLES_BEGIN });
-    try {
-      const { data } = await authFetch(url);
-      const { vehicles, totalVehicles, numOfPages } = data;
-      dispatch({
-        type: GET_VEHICLES_SUCCESS,
-        payload: {
-          vehicles,
-          totalVehicles,
-          numOfPages,
-        },
-      });
-    } catch (error) {
-      console.log(error.response);
-      // logoutUser();
-    }
-    clearAlert();
-  };
+  // will add page later
+  const { search, searchStatus, searchType, sort } = state;
+  let url = `/vehicles?status=${searchStatus}&year=${searchType}&sort=${sort}`;
+  if (search) {
+    url = url + `&search=${search}`;
+  }
+  dispatch({ type: GET_VEHICLES_BEGIN });
+  try {
+    const { data } = await authFetch(url);
+    const { vehicles, totalVehicles, numOfPages } = data;
+    dispatch({
+      type: GET_VEHICLES_SUCCESS,
+      payload: {
+        vehicles,
+        totalVehicles,
+        numOfPages,
+      },
+    });
+  } catch (error) {
+    console.log(error.response);
+    // logoutUser();
+  }
+  clearAlert();
+};
 ```
 
 ```js
-JobsContainer.js
+VehiclesContainer.js;
 
-const JobsContainer = () => {
+const VehiclesContainer = () => {
   const {
-    getJobs,
-    jobs,
+    getVehicles,
+    vehicles,
     isLoading,
     page,
-    totalJobs,
+    totalVehicles,
     search,
     searchStatus,
     searchType,
     sort,
-
-  } = useAppContext()
+  } = useAppContext();
   useEffect(() => {
-    getJobs()
-  }, [ search, searchStatus, searchType, sort])
-
+    getVehicles();
+  }, [search, searchStatus, searchType, sort]);
+};
 ```
 
 #### Limit and Skip
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+const getAllVehicles = async (req, res) => {
+  const { search, status, year, sort } = req.query;
+
   const queryObject = {
     createdBy: req.user.userId,
   };
-  if (search) {
-    queryObject.position = { $regex: search, $options: "i" };
-  }
-  if (status !== "all") {
+
+  // add stuff based on condition
+  if (status && status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== "all") {
-    queryObject.jobType = jobType;
+  if (year && year !== "all") {
+    queryObject.year = year;
   }
-  let result = Job.find(queryObject);
+  if (search) {
+    queryObject.make = { $regex: search, $options: "i" };
+  }
 
+  // NO AWAIT
+  let result = Vehicle.find(queryObject);
+
+  // chain sort conditions
   if (sort === "latest") {
     result = result.sort("-createdAt");
   }
@@ -5253,13 +5259,13 @@ const getAllJobs = async (req, res) => {
     result = result.sort("createdAt");
   }
   if (sort === "a-z") {
-    result = result.sort("position");
+    result = result.sort("make");
   }
   if (sort === "z-a") {
-    result = result.sort("-position");
+    result = result.sort("-make");
   }
 
-  const totalJobs = await result;
+  const totalVehicles = await result;
 
   // setup pagination
   const limit = 10;
@@ -5268,34 +5274,41 @@ const getAllJobs = async (req, res) => {
   result = result.skip(skip).limit(limit);
   // 23
   // 4 7 7 7 2
-  const jobs = await result;
+  const vehicles = await result;
+
   res
     .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 ```
 
 #### Page and Limit
 
 ```js
-jobsController.js;
+vehiclesController.js;
 
-const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+const getAllVehicles = async (req, res) => {
+  const { search, status, year, sort } = req.query;
+
   const queryObject = {
     createdBy: req.user.userId,
   };
-  if (search) {
-    queryObject.position = { $regex: search, $options: "i" };
-  }
-  if (status !== "all") {
+
+  // add stuff based on condition
+  if (status && status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== "all") {
-    queryObject.jobType = jobType;
+  if (year && year !== "all") {
+    queryObject.year = year;
   }
-  let result = Job.find(queryObject);
+  if (search) {
+    queryObject.make = { $regex: search, $options: "i" };
+  }
 
+  // NO AWAIT
+  let result = Vehicle.find(queryObject);
+
+  // chain sort conditions
   if (sort === "latest") {
     result = result.sort("-createdAt");
   }
@@ -5303,11 +5316,13 @@ const getAllJobs = async (req, res) => {
     result = result.sort("createdAt");
   }
   if (sort === "a-z") {
-    result = result.sort("position");
+    result = result.sort("make");
   }
   if (sort === "z-a") {
-    result = result.sort("-position");
+    result = result.sort("-make");
   }
+
+  const totalVehicles = await result;
 
   // setup pagination
   const page = Number(req.query.page) || 1;
@@ -5316,10 +5331,11 @@ const getAllJobs = async (req, res) => {
   result = result.skip(skip).limit(limit);
   // 75
   // 10 10 10 10 10 10 10 5
-  const jobs = await result;
+  const vehicles = await result;
+
   res
     .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+    .json({ vehicles, totalVehicles: vehicles.length, numOfPages: 1 });
 };
 ```
 
