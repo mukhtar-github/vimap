@@ -5552,10 +5552,10 @@ const nextPage = () => {
 ```js
 appContext.js;
 
-const getJobs = async () => {
+const getVehicles = async () => {
   const { page, search, searchStatus, searchType, sort } = state;
 
-  let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
+  let url = `/vehicles?page=${page}&status=${searchStatus}&year=${searchType}&sort=${sort}`;
   // rest of the code
 };
 ```

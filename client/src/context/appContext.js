@@ -263,8 +263,8 @@ const AppProvider = ({ children }) => {
 
   const getVehicles = async () => {
     // will add page later
-    const { search, searchStatus, searchType, sort } = state;
-    let url = `/vehicles?status=${searchStatus}&year=${searchType}&sort=${sort}`;
+    const { page, search, searchStatus, searchType, sort } = state;
+    let url = `/vehicles?page=${page}&status=${searchStatus}&year=${searchType}&sort=${sort}`;
     if (search) {
       url = url + `&search=${search}`;
     }
