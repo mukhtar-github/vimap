@@ -42,7 +42,6 @@ const VehiclesContainer = () => {
           return <Vehicle key={vehicle._id} {...vehicle} />;
         })}
       </div>
-      {/* pagination buttons */}
       {numOfPages > 1 && <PageBtnContainer />}
     </Wrapper>
   );
