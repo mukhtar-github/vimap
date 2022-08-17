@@ -5561,11 +5561,11 @@ const getVehicles = async () => {
 ```
 
 ```js
-JobsContainer.js;
+VehiclesContainer.js;
 
 const { page } = useAppContext();
 useEffect(() => {
-  getJobs();
+  getVehicles();
 }, [page, search, searchStatus, searchType, sort]);
 ```
 

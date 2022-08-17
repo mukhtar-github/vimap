@@ -20,7 +20,7 @@ const VehiclesContainer = () => {
   } = useAppContext();
   useEffect(() => {
     getVehicles();
-  }, [search, searchStatus, searchType, sort]);
+  }, [page, search, searchStatus, searchType, sort]);
 
   if (isLoading) {
     return <Loading center />;
