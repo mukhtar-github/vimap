@@ -20,6 +20,7 @@ const VehiclesContainer = () => {
   } = useAppContext();
   useEffect(() => {
     getVehicles();
+    // eslint-disable-next-line
   }, [page, search, searchStatus, searchType, sort]);
 
   if (isLoading) {
