@@ -5599,7 +5599,6 @@ package.json
     "server": "nodemon server.js --ignore client",
     "client": "cd client && npm run start",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
-
   },
 
 ```
