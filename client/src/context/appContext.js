@@ -280,8 +280,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error.response);
-      // logoutUser();
+      logoutUser();
     }
     clearAlert();
   };
@@ -332,8 +331,7 @@ const AppProvider = ({ children }) => {
       await authFetch.delete(`/vehicles/${vehicleId}`);
       getVehicles();
     } catch (error) {
-      console.log(error.response);
-      // logoutUser();
+      logoutUser();
     }
   };
 
@@ -349,8 +347,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error.response);
-      // logoutUser()
+      logoutUser();
     }
 
     clearAlert();

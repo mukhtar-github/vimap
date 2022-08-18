@@ -5581,7 +5581,7 @@ if (action.type === HANDLE_CHANGE) {
 
 #### Production Setup - Fix Warnings and logoutUser
 
-- getJobs,deleteJob,showStats - invoke logoutUser()
+- getVehicles,deleteVehicle,showStats - invoke logoutUser()
 - fix warnings
 
 ```sh
