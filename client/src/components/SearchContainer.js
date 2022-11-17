@@ -2,8 +2,10 @@ import React from "react";
 import { FormRow, FormRowSelect } from ".";
 import { useAppContext } from "../context/appContext";
 import Wrapper from "../assets/wrappers/SearchContainer";
+import { useState, useMemo } from "react";
 
 const SearchContainer = () => {
+  const [localSearch, setLocalSearch] = useState("");
   const {
     isLoading,
     search,
