@@ -39,7 +39,7 @@ const SearchContainer = () => {
             type="text"
             name="search"
             value={localSearch}
-            handleChange={handleSearch}
+            handleChange={(e) => setLocalSearch(e.target.value)}
           ></FormRow>
           {/* search by status */}
           <FormRowSelect
