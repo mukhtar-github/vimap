@@ -5000,6 +5000,59 @@ router.route("/register").post(apiLimiter, register);
 router.route("/login").post(apiLimiter, login);
 ```
 
+#### Alternative Search with Debounce
+
+client/components/SearchContainer.js
+
+```js
+
+import { useState, useMemo } from 'react';
+const SearchContainer = () => {
+  const [localSearch, setLocalSearch] = useState('');
+  const {
+    ....
+  } = useAppContext();
+  const handleSearch = (e) => {
+    handleChange({ name: e.target.name, value: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    clearFilters();
+  };
+  const debounce = () => {
+    let timeoutID;
+    return (e) => {
+      setLocalSearch(e.target.value);
+      clearTimeout(timeoutID);
+      timeoutID = setTimeout(() => {
+        handleChange({ name: e.target.name, value: e.target.value });
+      }, 1000);
+    };
+  };
+  const optimizedDebounce = useMemo(() => debounce(), []);
+  return (
+    <Wrapper>
+      <form className='form'>
+        <h4>search form</h4>
+        <div className='form-center'>
+          {/* search position */}
+
+          <FormRow
+            type='text'
+            name='search'
+            value={localSearch}
+            handleChange={optimizedDebounce}
+          />
+         ........
+        </div>
+      </form>
+    </Wrapper>
+  );
+};
+
+export default SearchContainer;
+```
+
 #### Deploy To Heroku
 
 - heroku login
